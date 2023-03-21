@@ -19,13 +19,18 @@ body {
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+
 	a,
 	a:visited {
 		text-decoration: none;
 	}
+
 	a:hover {
 		text-decoration: none;
 	}
+
 	a:focus,
 	a:active {
 		outline: none;
@@ -33,13 +38,15 @@ body {
 }
 
 .App {
-	margin: 0 auto;
-	max-width: 1366px;
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 
 	main {
 		flex: 1;
+	}
+	.content {
+		margin: 0 auto;
+		max-width: 1366px;
 	}
 }

@@ -1,0 +1,12 @@
+@import 'src/styles/variable';
+
+.btn {
+	background-color: $yellow;
+	border-radius: 79px;
+	padding: 21px 54px;
+	color: #ffff;
+	.btn__children {
+		display: flex;
+		grid-gap: 12px;
+	}
+}

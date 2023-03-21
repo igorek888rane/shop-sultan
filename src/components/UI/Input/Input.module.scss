@@ -1,0 +1,20 @@
+@import 'src/styles/variable';
+.input__block {
+	display: flex;
+	position: relative;
+	max-width: 263px;
+	.input {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		background: $grey;
+		border-radius: 36px;
+		padding: 20px;
+		outline: none;
+	}
+	.btn {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+}
