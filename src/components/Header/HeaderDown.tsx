@@ -37,8 +37,9 @@ const HeaderDown: FC = () => {
 					<img src={download} alt='' />
 				</Button>
 			</div>
-			<div className={styles.item}>
+			<div className={`${styles.item} ${styles.cart__item}`}>
 				<div className={styles.item__img}>
+					<div className={styles.cart_count}>3</div>
 					<img src={cart} alt='' />
 				</div>
 				<div className={styles.item__text}>

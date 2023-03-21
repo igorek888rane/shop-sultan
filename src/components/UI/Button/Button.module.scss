@@ -1,12 +1,17 @@
 @import 'src/styles/variable';
 
 .btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	background-color: $yellow;
 	border-radius: 79px;
 	padding: 21px 54px;
 	color: #ffff;
+	cursor: pointer;
 	.btn__children {
 		display: flex;
+		align-items: center;
 		grid-gap: 12px;
 	}
 }
