@@ -51,8 +51,8 @@
 	.header__down {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		flex-flow: row wrap;
-
 		padding: 24px 0;
 		.item {
 			display: flex;
@@ -100,14 +100,14 @@
 				}
 			}
 		}
-		@media (max-width: 1103px) {
+		@media (max-width: 1110px) {
 			justify-content: center;
 			grid-gap: 10px;
 		}
 	}
 }
 
-@media (max-width: 568px) {
+@media (max-width: 576px) {
 	.header {
 		.header__up {
 		}
