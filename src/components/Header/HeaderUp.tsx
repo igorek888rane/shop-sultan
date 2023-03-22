@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styles from './Header.module.scss'
-import InfoItem from './InfoItem'
+import ContactItem from '../UI/ContactItem/ContactItem'
 import geo from '../../img/header/geo.png'
 import mail from '../../img/header/mail_icon.png'
 
@@ -8,15 +8,15 @@ const HeaderUp: FC = () => {
 	return (
 		<div className={`${styles.header__up} content`}>
 			<div className={styles.header__info}>
-				<InfoItem
+				<ContactItem
 					img={geo}
 					textMain={'г. Кокчетав, ул. Ж. Ташенова 129Б'}
 					textSub={'(Рынок Восточный)'}
 				/>
-				<InfoItem
+				<ContactItem
 					img={mail}
 					textMain={'opt.sultan@mail.ru'}
-					textSub={'На связи в любое время)'}
+					textSub={'На связи в любое время'}
 				/>
 			</div>
 			<nav className={styles.header__nav}>

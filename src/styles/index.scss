@@ -45,8 +45,18 @@ body {
 	main {
 		flex: 1;
 	}
+
 	.content {
 		margin: 0 auto;
 		max-width: 1366px;
 	}
+}
+
+h1 {
+	font-size: 2.85em;
+}
+
+h2 {
+	font-size: 1.45em;
+	font-weight: 600;
 }

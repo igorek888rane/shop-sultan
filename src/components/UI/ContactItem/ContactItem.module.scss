@@ -1,0 +1,25 @@
+@import 'src/styles/variable';
+
+.contact__item {
+	display: flex;
+	align-items: center;
+	grid-gap: 23px;
+
+	.item__img {
+	}
+
+	.item__text {
+		display: flex;
+		flex-direction: column;
+
+		.text_main {
+			font-weight: 600;
+			color: $black;
+		}
+
+		.text_sub {
+			font-weight: 400;
+			color: $colorEl;
+		}
+	}
+}
