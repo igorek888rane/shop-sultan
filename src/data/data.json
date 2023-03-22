@@ -1,0 +1,259 @@
+[
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/200/200_160_1/2008fcb446418da9008215c40df32f56.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/226/2268262b0e46111be9b4ecaf32b9926d.jpg"
+		},
+
+		"name": "Шампунь L'Oreal Paris",
+		"typeSize": "volume",
+		"size": "200мл",
+		"barcode": "4604049097548",
+		"manufacturer": "L'Oréal",
+		"brand": "L'Oreal",
+		"description": "Эксперт цвета Фиолетовый против желтизны",
+		"price": "100 ₽",
+		"typeCare": ["hair"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/300/200_160_1/2000229474.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/403/2000229474.jpg"
+		},
+		"name": "Мицеллярная вода \"Garnier\"",
+		"typeSize": "volume",
+		"size": "400мл",
+		"barcode": "4604049097549",
+		"manufacturer": "L'Oréal",
+		"brand": "Garnier",
+		"description": "Нежная мицеллярная вода Garnier «3 в 1» бережно снимает макияж, очищает поры и успокаивает кожу. ",
+		"price": "450 ₽",
+		"typeCare": ["face", "hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/4ec/200_160_1/4ec0a578622bc3fe5ebe297a03cecbe7.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/faf/faf960ecb08c41706a820b5fa2c15254.jpg"
+		},
+		"name": "Гель для рук \"Karolinger\"",
+		"typeSize": "volume",
+		"size": "100мл",
+		"barcode": "4604049097550",
+		"manufacturer": "Торговый Дом Энергон Рус",
+		"brand": "Karolinger",
+		"description": "Очищающий несмываемый гель для рук окажется незаменимым помощником в любой ситуации, когда вы не сможете использовать воду и мыло",
+		"price": "80 ₽",
+		"typeCare": ["hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/301/200_160_1/301c3c0ce8bc85f1c2ec1e7c64fbd646.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/0ed/0eda0d8716d5ef9ebfd000e785d12294.jpg"
+		},
+		"name": "Крем \"Nivea\" Creme универсальный",
+		"typeSize": "volume",
+		"size": "150мл",
+		"barcode": "4604049097551",
+		"manufacturer": "Beiersdorf AG",
+		"brand": "Nivea",
+		"description": "NIVEA Crème — универсальный увлажняющий крем с плотной питательной текстурой для всей семьи",
+		"price": "355 ₽",
+		"typeCare": ["body"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/1e9/200_160_1/1e9fb4354f656577e19d309ae29f0a29.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/447/447e2071fe0da95c18377afb9936c08e.jpg"
+		},
+		"name": "Крем для лица \"Невская Косметика\"",
+		"typeSize": "volume",
+		"size": "40мл",
+		"barcode": "4604049097552",
+		"manufacturer": "Невская косметика",
+		"brand": "Невская косметика",
+		"description": "Предназначен для ухода за кожей лица с 30 лет.",
+		"price": "130 ₽",
+		"typeCare": ["face", "hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/99f/200_160_1/99f1cd4795602d3640bea0a5edb8e489.jpeg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/7b2/7b2099e97a2e2262ca9294a970e94741.jpeg"
+		},
+		"name": "Крем-гель для умывания \"Garnier\"",
+		"typeSize": "volume",
+		"size": "150мл",
+		"barcode": "4604049097553",
+		"manufacturer": "L'Oreal",
+		"brand": "Garnier",
+		"description": "3-в-1 - это новый подход для борьбы против прыщей, черных точек и жирного блеска",
+		"price": "300 ₽",
+		"typeCare": ["face"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/049/200_160_1/049839351d7b66487921c1f9338356fc.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/64b/64b21b435c52c8f67476a0f87e59eda4.jpg"
+		},
+		"name": "Крем солнцезащитный \"Мое солнышко\"",
+		"typeSize": "volume",
+		"size": "55 мл",
+		"barcode": "4604049097554",
+		"manufacturer": "АО Аванта",
+		"brand": "Мое солнышко",
+		"description": "Крем специально разработан для надёжной защиты детской кожи от солнца, в том числе от солнечных ожогов",
+		"price": "100 ₽",
+		"typeCare": ["body"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/06f/200_160_1/06f9ceb5f87ba0835599c076e238028c.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/c6f/c6f62df56da829e614d1518493386550.jpg"
+		},
+		"name": "Дезодорант \"Old Spice\" Wolfthorn стик",
+		"typeSize": "volume",
+		"size": "50мл",
+		"barcode": "4604049097555",
+		"manufacturer": "Procter&Gamble",
+		"brand": "Old Spice",
+		"description": "Кто знал, что аромат свободы Wolfthorn может избавить тебя от несвежих и асоциальных запахов?",
+		"price": "350 ₽",
+		"typeCare": ["body"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/4a0/200_160_1/4a0272753927296172d0633bcdb6a665.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/f76/f76a0c4bc2425df5de9e20b980f683f4.jpg"
+		},
+		"name": "Гель для рук Биотек антисептический с алоэ и витамином Е",
+		"typeSize": "volume",
+		"size": "100мл",
+		"barcode": "4604049097556",
+		"manufacturer": "Sanitelle",
+		"brand": "Sanitelle",
+		"description": "",
+		"price": "50 ₽",
+		"typeCare": ["hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/ded/200_160_1/ded2ba7a78116e8f41bec24646000bbb.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/a0b/a0b6390d481b39c66f11c1ea9826459c.jpg"
+		},
+		"name": "Крем \"Nivea\" Soft Интенсивный увлажняющий",
+		"typeSize": "volume",
+		"size": "200мл",
+		"barcode": "4604049097557",
+		"manufacturer": "Beiersdorf AG",
+		"brand": "Nivea",
+		"description": "Так приятно, когда находишь средство, идеально подходящее не только для кожи рук, но и для тела и лица!",
+		"price": "299.90 ₽",
+		"typeCare": ["body", "face", "hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/b01/200_160_1/b0105b17564ca342de28586a89cdf4b5.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/b05/b05067b3d4ba1d729bb46885fef153bb.jpg"
+		},
+		"name": "Гель для рук Dr.Hand антибактериальный",
+		"typeSize": "volume",
+		"size": "50мл",
+		"barcode": "4604049097558",
+		"manufacturer": "Dr.Hand",
+		"brand": "Dr.Hand",
+		"description": "",
+		"price": "79.99 ₽",
+		"typeCare": ["hands"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/877/200_160_1/87736860f44afab6409bcd7375ef45f4.jpeg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/d51/d5134d8b9b18f23966edc5f623e36ba9.jpeg"
+		},
+		"name": "Маска тканевая \"Черный жемчуг\"",
+		"typeSize": "weight",
+		"size": "2г",
+		"barcode": "4604049097559",
+		"manufacturer": "Unilever",
+		"brand": "Черный жемчуг",
+		"description": "Тканевая маска для лица Mezocare Сияние и увлажнение с системой доставки активных мезо компонентов в глубокие слои кожи создана специально для интенсивного питания и увлажнения кожи и придания ей сияния и свежести.",
+		"price": "99.99 ₽",
+		"typeCare": ["face"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/17b/200_160_1/17ba2376c1cb75276e677a6a8650ad3b.jpeg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/8e4/8e46e45f0ada54eb7a547147af5ee4b0.jpeg"
+		},
+		"name": "Маска тканевая \"Черный жемчуг\"",
+		"typeSize": "weight",
+		"size": "2г",
+		"barcode": "4604049097559",
+		"manufacturer": "Unilever",
+		"brand": "Черный жемчуг",
+		"description": "Первые тканевые маски Mezocare от бренда Черный Жемчуг с технологией материала с системой доставки активных мезо компонентов в глубокие слои кожи",
+		"price": "99.99 ₽",
+		"typeCare": ["face"]
+	},
+
+	{
+		"imageUrl": {
+			"small": "",
+			"large": ""
+		},
+		"name": "",
+		"typeSize": "",
+		"size": "",
+		"barcode": "4604049097551",
+		"manufacturer": "",
+		"brand": "",
+		"description": "",
+		"price": "",
+		"typeCare": ""
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/70b/200_160_1/70bdccae556bcbe5ba661266e318329f.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/dd7/dd7afc5d89ab29df9563e956e28ad3b4.jpg"
+		},
+		"name": "Крем для тела \"Bioteq\"",
+		"typeSize": "volume",
+		"size": "150мл",
+		"barcode": "4604049097552",
+		"manufacturer": "Биотек Фарм",
+		"brand": "Bioteq",
+		"description": "Легкий ежедневный крем для ухода за телом и поддержания тонуса кожи.",
+		"price": "129.90 ₽",
+		"typeCare": ["body"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/c5a/200_160_1/c5a58f6946a373cee6055352e48a5dca.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/f5b/f5b06105a9f7f3698b9966ce33b70cdc.jpg"
+		},
+		"name": "Крем для нормальной и комбинированной кожи лица \"Чистая линия\"",
+		"typeSize": "volume",
+		"size": "40мл",
+		"barcode": "4604049097553",
+		"manufacturer": "Unilever",
+		"brand": "Чистая линия",
+		"description": "Алоэ-вера обеспечивает оптимальное увлажнение кожи в течении дня, разглаживает мелкие морщинки, обладает регенерирующими свойствами, придает коже свежесть, благодаря ферментам и витаминам.",
+		"price": "109.90 ₽",
+		"typeCare": ["face"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/720/200_160_1/7208983e33353e55c713b54c5a82a104.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/9e3/9e3d919e917470792a4a580047fc0b7d.jpg"
+		},
+		"name": "Маска-йогурт для лица \"El'Skin\" Клубника, массажная",
+		"typeSize": "weight",
+		"size": "10г",
+		"barcode": "4604049097554",
+		"manufacturer": "Эдвин Корея Корпорейшн",
+		"brand": "El'Skin",
+		"description": "Массажная маска-йогурт «КЛУБНИКА» обладает мягкой и нежной текстурой, способствует увлажнению и питанию кожи, оказывает эффект легкого пилинга, придавая коже сияние и свежесть.",
+		"price": "89.99 ₽",
+		"typeCare": ["face"]
+	}
+]
