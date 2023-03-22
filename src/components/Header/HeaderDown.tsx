@@ -44,12 +44,12 @@ const HeaderDown: FC = () => {
 			</div>
 			<div className={`${styles.item} ${styles.cart__item}`}>
 				<div className={styles.item__img}>
-					<div className={styles.cart_count}>3</div>
+					<div className={styles.cart_count}>0</div>
 					<img src={cart} alt='' />
 				</div>
 				<div className={styles.item__text}>
 					<p className={styles.text__hours}>Корзина</p>
-					<p className={styles.text__number}>12 478 ₸ </p>
+					<p className={styles.text__number}>0</p>
 				</div>
 			</div>
 		</div>

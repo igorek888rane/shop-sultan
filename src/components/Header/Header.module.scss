@@ -50,6 +50,7 @@
 		.cart__item {
 			position: relative;
 			height: 50px;
+			cursor: pointer;
 
 			.item__img {
 				.cart_count {
@@ -66,6 +67,14 @@
 					border-radius: 50%;
 					color: #ffff;
 					font-weight: 700;
+				}
+			}
+			.item__text {
+				.text__number {
+					font-weight: 600;
+					font-size: 14px;
+					line-height: 150%;
+					color: $black;
 				}
 			}
 		}

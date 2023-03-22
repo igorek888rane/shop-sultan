@@ -1,0 +1,25 @@
+@import 'src/styles/variable';
+
+.filters {
+	display: flex;
+	grid-gap: 11px;
+
+	.filters__item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 19px;
+		box-shadow: 0 15px 70px -11px rgba(43, 28, 1, 0.04);
+		border-radius: 10px;
+		background-color: #ffffff;
+		cursor: pointer;
+		.filters__text {
+			text-align: center;
+			width: 70px;
+			height: 34px;
+		}
+		&.active {
+			border: 1px solid $colorEl;
+		}
+	}
+}
