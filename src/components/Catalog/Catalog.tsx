@@ -1,17 +1,19 @@
 import { FC } from 'react'
 import styles from './Catalog.module.scss'
-import products from '../../data/data.json'
 import Filters from '../UI/Filters/Filters'
 import Select from '../UI/Select/Select'
 import ProductCard from './ProductCard'
 import { IProduct } from '../../data/dataTypes'
 import CatalogFilters from './CatalogFilters'
+import { useAppSelector } from '../../hooks/useApp'
 
 interface CatalogProps {
 	header: string
 }
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
+	const { products } = useAppSelector(state => state.products)
+
 	return (
 		<div className={styles.catalog}>
 			<div className={styles.head}>

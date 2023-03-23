@@ -3,6 +3,7 @@ import styles from './Catalog.module.scss'
 import clear from '../../img/catalog/clear.png'
 import FilterItem from './FilterItem'
 import Button from '../UI/Button/Button'
+import Filters from '../UI/Filters/Filters'
 
 const CatalogFilters: FC = () => {
 	return (
@@ -43,7 +44,6 @@ const CatalogFilters: FC = () => {
 					'Мое солнышко',
 					'Sanitelle',
 					'Old Spice',
-					'Unilever',
 					'Dr.Hand',
 					'Черный жемчуг',
 					'Bioteq',
@@ -56,6 +56,29 @@ const CatalogFilters: FC = () => {
 				<Button style={{ padding: '20px' }}>
 					<img src={clear} alt='' />
 				</Button>
+			</div>
+			<div className={styles.filter}>
+				<Filters
+					direction={true}
+					item={[
+						{
+							id: 'body',
+							name: 'Уход за телом',
+						},
+						{
+							id: 'hands',
+							name: 'Уход за руками',
+						},
+						{
+							id: 'face',
+							name: 'Уход за лицом',
+						},
+						{
+							id: 'hair',
+							name: 'Уход за волосами',
+						},
+					]}
+				/>
 			</div>
 		</div>
 	)
