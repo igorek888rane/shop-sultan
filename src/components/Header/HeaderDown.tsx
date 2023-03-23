@@ -49,7 +49,7 @@ const HeaderDown: FC = () => {
 				</div>
 				<div className={styles.item__text}>
 					<p className={styles.text__hours}>Корзина</p>
-					<p className={styles.text__number}>0</p>
+					<p className={styles.text__number}>0 ₽</p>
 				</div>
 			</div>
 		</div>

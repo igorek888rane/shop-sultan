@@ -9,7 +9,7 @@ const Filters: FC<FiltersProps> = ({ item }) => {
 	return (
 		<div className={styles.filters}>
 			{item.map(item => (
-				<div className={`${styles.filters__item} `}>
+				<div key={item.id} className={`${styles.filters__item} `}>
 					<p className={styles.filters__text}>{item.name}</p>
 				</div>
 			))}

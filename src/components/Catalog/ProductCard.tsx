@@ -10,7 +10,7 @@ interface ProductProps {
 	product: IProduct
 }
 
-const Product: FC<ProductProps> = ({ product }) => {
+const ProductCard: FC<ProductProps> = ({ product }) => {
 	return (
 		<div className={styles.product}>
 			<div className={styles.product__img}>
@@ -43,4 +43,4 @@ const Product: FC<ProductProps> = ({ product }) => {
 	)
 }
 
-export default Product
+export default ProductCard

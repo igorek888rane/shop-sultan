@@ -9,7 +9,7 @@ const Select: FC<FiltersProps> = ({ item }) => {
 	return (
 		<select defaultValue={item[0].name} className={styles.select}>
 			{item.map(item => (
-				<option>{item.name}</option>
+				<option key={item.id}>{item.name}</option>
 			))}
 		</select>
 	)

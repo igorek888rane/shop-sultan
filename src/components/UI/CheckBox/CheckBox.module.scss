@@ -1,0 +1,14 @@
+@import 'src/styles/variable';
+.checkbox__block {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: start;
+	margin-top: 5px;
+	.name {
+		margin-left: 10px;
+		span {
+			margin-left: 5px;
+		}
+	}
+}

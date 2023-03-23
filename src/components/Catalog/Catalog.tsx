@@ -3,8 +3,9 @@ import styles from './Catalog.module.scss'
 import products from '../../data/data.json'
 import Filters from '../UI/Filters/Filters'
 import Select from '../UI/Select/Select'
-import Product from './Product'
+import ProductCard from './ProductCard'
 import { IProduct } from '../../data/dataTypes'
+import CatalogFilters from './CatalogFilters'
 
 interface CatalogProps {
 	header: string
@@ -52,10 +53,10 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 				]}
 			/>
 			<div className={styles.catalog__items}>
-				<div className={styles.catalog__filters}>1</div>
+				<CatalogFilters />
 				<div className={styles.catalog__products}>
 					{products.map(product => (
-						<Product product={product as IProduct} />
+						<ProductCard key={product.barcode} product={product as IProduct} />
 					))}
 				</div>
 			</div>

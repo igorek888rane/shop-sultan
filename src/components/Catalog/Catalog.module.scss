@@ -1,5 +1,6 @@
 @import 'src/styles/variable';
 .catalog {
+	margin-top: 50px;
 	.head {
 		display: flex;
 		justify-content: space-between;
@@ -20,10 +21,69 @@
 
 	.catalog__items {
 		display: flex;
+		margin-top: 30px;
 		grid-gap: 108px;
 
 		.catalog__filters {
-			width: 250px;
+			.filters__item {
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				margin-top: 20px;
+				max-width: 238px;
+				.filter__head {
+					font-weight: 500;
+					font-size: 1.15em;
+					color: $black;
+				}
+				.filter__price {
+					margin-top: 10px;
+					font-weight: 300;
+					span {
+						color: $black;
+						font-weight: 500;
+					}
+				}
+				.filter__inputs {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					grid-gap: 10px;
+					height: 23px;
+					p {
+						margin-top: 12px;
+					}
+					input {
+						outline: none;
+						margin-top: 16px;
+						width: 105px;
+						padding: 4px 14px;
+						background: linear-gradient(
+							90deg,
+							rgba(255, 198, 80, 0.3) 0%,
+							rgba(254, 202, 110, 0.3) 97.25%
+						);
+						border-radius: 1000px;
+					}
+				}
+				.filter__input {
+					margin-top: 15px;
+					input {
+						width: 238px;
+					}
+				}
+				.filter__checkbox {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					margin-top: 10px;
+				}
+			}
+			.filter__btn {
+				display: flex;
+				grid-gap: 10px;
+				margin-top: 25px;
+			}
 		}
 
 		.catalog__products {

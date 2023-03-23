@@ -21,7 +21,7 @@ const HeaderUp: FC = () => {
 			</div>
 			<nav className={styles.header__nav}>
 				{['О компании', 'Доставка и оплата', 'Возврат', 'Контакты'].map(a => (
-					<a className={styles.nav__item} href='#'>
+					<a key={a} className={styles.nav__item} href='#'>
 						{a}
 					</a>
 				))}
