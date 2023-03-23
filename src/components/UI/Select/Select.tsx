@@ -1,15 +1,19 @@
-import { FC } from 'react'
+import { ChangeEvent, FC } from 'react'
 import styles from './Select.module.scss'
 
 interface FiltersProps {
 	item: { id: string; name: string }[]
+	value: string
+	onChange: (e: ChangeEvent<HTMLSelectElement>) => void
 }
 
-const Select: FC<FiltersProps> = ({ item }) => {
+const Select: FC<FiltersProps> = ({ item, value, onChange }) => {
 	return (
-		<select defaultValue={item[0].name} className={styles.select}>
+		<select value={value} onChange={onChange} className={styles.select}>
 			{item.map(item => (
-				<option key={item.id}>{item.name}</option>
+				<option key={item.id} value={item.id}>
+					{item.name}
+				</option>
 			))}
 		</select>
 	)

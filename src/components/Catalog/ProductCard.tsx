@@ -33,7 +33,7 @@ const ProductCard: FC<ProductProps> = ({ product }) => {
 				</p>
 			</div>
 			<div className={styles.product__cart}>
-				<p>{product.price}</p>
+				<p>{product.price}₽</p>
 				<Button style={{ padding: '21px 25px ' }}>
 					<p>В КОРЗИНУ</p>
 					<img src={cart} alt='' />

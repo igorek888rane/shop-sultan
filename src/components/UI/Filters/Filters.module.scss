@@ -4,6 +4,10 @@
 	display: flex;
 	grid-gap: 11px;
 
+	&.column {
+		flex-direction: column;
+	}
+
 	.filters__item {
 		display: flex;
 		justify-content: center;
@@ -13,13 +17,34 @@
 		border-radius: 10px;
 		background-color: #ffffff;
 		cursor: pointer;
+
 		.filters__text {
 			text-align: center;
 			width: 70px;
 			height: 34px;
 		}
+
 		&.active {
 			border: 1px solid $colorEl;
+		}
+	}
+}
+
+@media (max-width: 788px) {
+	.filters {
+		flex-direction: column;
+		grid-gap: 1px;
+
+		.filters__item {
+			//align-items: start;
+			//justify-content: start;
+			padding: 0;
+			border-radius: 0;
+			box-shadow: none;
+			.filters__text {
+				text-align: start;
+				width: 100%;
+			}
 		}
 	}
 }

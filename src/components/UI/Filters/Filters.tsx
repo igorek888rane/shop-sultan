@@ -1,19 +1,37 @@
 import { FC } from 'react'
 import styles from './Filters.module.scss'
+import { useAppDispatch, useAppSelector } from '../../../hooks/useApp'
+import { setTypeCare } from '../../../store/slice/filterSlice'
+
+type itemType = { id: string; name: string }
 
 interface FiltersProps {
-	item: { id: string; name: string }[]
+	items: itemType[]
 	direction?: boolean
 }
 
-const Filters: FC<FiltersProps> = ({ item, direction }) => {
+const Filters: FC<FiltersProps> = ({ items, direction }) => {
+	const { typeCare } = useAppSelector(state => state.filter)
+	const dispatch = useAppDispatch()
+	const handleClick = (item: itemType) => {
+		if (item.id === typeCare) {
+			dispatch(setTypeCare(''))
+		} else {
+			dispatch(setTypeCare(item.id))
+		}
+	}
 	return (
 		<div
-			style={{ flexDirection: direction ? 'column' : 'row' }}
-			className={styles.filters}
+			className={`${styles.filters} ${direction ? `${styles.column}` : ''} `}
 		>
-			{item.map(item => (
-				<div key={item.id} className={`${styles.filters__item} `}>
+			{items.map(item => (
+				<div
+					onClick={() => handleClick(item)}
+					key={item.id}
+					className={`${styles.filters__item} ${
+						typeCare === item.id ? `${styles.active}` : ''
+					} `}
+				>
 					<p className={styles.filters__text}>{item.name}</p>
 				</div>
 			))}

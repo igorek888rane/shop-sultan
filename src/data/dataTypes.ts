@@ -10,6 +10,6 @@ export interface IProduct {
 	manufacturer: string
 	brand: string
 	description: string
-	price: string
+	price: number
 	typeCare: string[]
 }
