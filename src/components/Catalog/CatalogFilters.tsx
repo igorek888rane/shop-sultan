@@ -9,7 +9,7 @@ import InputPrice from '../UI/InputPrice/InputPrice'
 import { setFrom, setTo } from '../../store/slice/filterSlice'
 
 const CatalogFilters: FC = () => {
-	const { brand, manufacturer, from, to } = useAppSelector(
+	const { brand, manufacturer, typesCare, from, to } = useAppSelector(
 		state => state.filter
 	)
 	const dispatch = useAppDispatch()
@@ -17,7 +17,7 @@ const CatalogFilters: FC = () => {
 	const clearFilter = () => {}
 	return (
 		<div className={styles.catalog__filters}>
-			<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ</p>
+			<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ </p>
 			<div className={styles.filters__item}>
 				<p className={styles.filter__price}>
 					Цена <span>₽</span>
@@ -54,27 +54,7 @@ const CatalogFilters: FC = () => {
 				</Button>
 			</div>
 			<div className={styles.filter}>
-				<Filters
-					direction={true}
-					items={[
-						{
-							id: 'body',
-							name: 'Уход за телом',
-						},
-						{
-							id: 'hands',
-							name: 'Уход за руками',
-						},
-						{
-							id: 'face',
-							name: 'Уход за лицом',
-						},
-						{
-							id: 'hair',
-							name: 'Уход за волосами',
-						},
-					]}
-				/>
+				<Filters direction={true} items={typesCare} />
 			</div>
 		</div>
 	)

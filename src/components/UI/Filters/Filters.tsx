@@ -1,9 +1,7 @@
 import { FC } from 'react'
 import styles from './Filters.module.scss'
 import { useAppDispatch, useAppSelector } from '../../../hooks/useApp'
-import { setTypeCare } from '../../../store/slice/filterSlice'
-
-type itemType = { id: string; name: string }
+import { itemType, setTypeCare } from '../../../store/slice/filterSlice'
 
 interface FiltersProps {
 	items: itemType[]

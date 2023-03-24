@@ -2,6 +2,7 @@ import { FC, useMemo, useState } from 'react'
 import styles from './Catalog.module.scss'
 import Input from '../UI/Input/Input'
 import searchIcon from '../../img/input/search.png'
+import arrow from '../../img/catalog/arrowFilter.png'
 import CheckBox from '../UI/CheckBox/CheckBox'
 import products from '../../data/data.json'
 
@@ -12,9 +13,17 @@ interface FilterItemProps {
 
 const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 	const [search, setSearch] = useState('')
+	const [show, setShow] = useState(false)
 	const filterItems = useMemo(() => {
-		return items.filter(i => i.toLowerCase().includes(search.toLowerCase()))
-	}, [search])
+		const f = items.filter(i => i.toLowerCase().includes(search.toLowerCase()))
+		if (show) {
+			return f
+		} else {
+			f.length = 4
+			return f
+		}
+	}, [search, show])
+
 	return (
 		<div className={styles.filters__item}>
 			<p className={styles.filter__head}>{head.name}</p>
@@ -40,6 +49,12 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 				) : (
 					<p>Ничего не найденно</p>
 				)}
+				<div className={styles.filter__show} onClick={() => setShow(!show)}>
+					<p>Показать все</p>
+					<div className={show ? styles.show : ''}>
+						<img src={arrow} alt='' />
+					</div>
+				</div>
 			</div>
 		</div>
 	)

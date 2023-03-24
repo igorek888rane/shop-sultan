@@ -2,6 +2,7 @@
 
 .filters {
 	display: flex;
+	flex-flow: row wrap;
 	grid-gap: 11px;
 
 	&.column {
@@ -12,16 +13,17 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 19px;
+		padding: 12px;
 		box-shadow: 0 15px 70px -11px rgba(43, 28, 1, 0.04);
 		border-radius: 10px;
 		background-color: #ffffff;
 		cursor: pointer;
+		max-width: 120px;
 
 		.filters__text {
 			text-align: center;
-			width: 70px;
 			height: 34px;
+			width: 84px;
 		}
 
 		&.active {
@@ -36,11 +38,10 @@
 		grid-gap: 1px;
 
 		.filters__item {
-			//align-items: start;
-			//justify-content: start;
 			padding: 0;
 			border-radius: 0;
 			box-shadow: none;
+			max-width: 100%;
 			.filters__text {
 				text-align: start;
 				width: 100%;

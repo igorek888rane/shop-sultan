@@ -1,5 +1,7 @@
 import { ChangeEvent, FC, useState } from 'react'
 import styles from './Catalog.module.scss'
+import arrow from '../../img/catalog/arrow.png'
+
 import Filters from '../UI/Filters/Filters'
 import Select from '../UI/Select/Select'
 import ProductCard from './ProductCard'
@@ -14,8 +16,8 @@ interface CatalogProps {
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
 	const { products } = useAppSelector(state => state.products)
-	const { typeCare } = useAppSelector(state => state.filter)
-	const [sortName, setSortName] = useState('price')
+	const { typeCare, typesCare } = useAppSelector(state => state.filter)
+	const [sortName, setSortName] = useState('name')
 	const [sortBy, setSortBy] = useState('desc')
 	const productsFilter = useProducts({ products, typeCare, sortName, sortBy })
 	return (
@@ -23,7 +25,12 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 			<div className={styles.head}>
 				<div className={styles.catalog__header}>
 					<h1>{header}</h1>
-					<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ</p>
+					<div className={styles.catalog__head}>
+						<p>ПОДБОР ПО ПАРАМЕТРАМ</p>
+						<div className={styles.arrow}>
+							<img src={arrow} alt='' />
+						</div>
+					</div>
 				</div>
 				<div className={styles.catalog__sort}>
 					<p>Сортировка:</p>
@@ -44,30 +51,11 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 						}
 						item={[
 							{ id: 'desc', name: 'По убыванию' },
-							{ id: 'asc', name: 'По возратсанию' },
+							{ id: 'asc', name: 'По возрастанию' },
 						]}
 					/>
 				</div>
-				<Filters
-					items={[
-						{
-							id: 'body',
-							name: 'Уход за телом',
-						},
-						{
-							id: 'hands',
-							name: 'Уход за руками',
-						},
-						{
-							id: 'face',
-							name: 'Уход за лицом',
-						},
-						{
-							id: 'hair',
-							name: 'Уход за волосами',
-						},
-					]}
-				/>
+				<Filters items={typesCare} />
 			</div>
 
 			<div className={styles.catalog__items}>

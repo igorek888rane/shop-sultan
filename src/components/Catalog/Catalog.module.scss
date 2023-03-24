@@ -2,7 +2,7 @@
 
 .catalog {
 	margin-top: 50px;
-
+	height: 100%;
 	.catalog__head {
 		font-weight: 500;
 		font-size: 1.15em;
@@ -19,13 +19,26 @@
 		.catalog__header {
 			.catalog__head {
 				display: none;
+				align-items: center;
+				justify-content: space-between;
+				margin-top: 19px;
+				.arrow {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: #ffca65;
+					border-radius: 50%;
+					width: 32px;
+					height: 32px;
+					padding: 12px;
+				}
 			}
 		}
 
 		.catalog__sort {
 			display: flex;
 			grid-gap: 10px;
-			margin-right: 120px;
+			//margin-right: 120px;
 			p {
 				color: #111111;
 				font-size: 1.15em;
@@ -102,6 +115,16 @@
 					justify-content: center;
 					margin-top: 10px;
 				}
+				.filter__show {
+					display: flex;
+					align-items: center;
+					grid-gap: 5px;
+					margin-top: 25px;
+					cursor: pointer;
+					.show {
+						transform: rotate(180deg);
+					}
+				}
 			}
 
 			.filter__btn {
@@ -119,6 +142,7 @@
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: center;
+			align-items: start;
 			max-width: 1020px;
 
 			.product {
@@ -130,6 +154,7 @@
 				box-shadow: 0 14px 39px -11px rgba(0, 0, 0, 0.06);
 				border-radius: 10px;
 				height: 490px;
+				max-width: 326px;
 
 				.product__img {
 					align-self: center;
@@ -187,9 +212,9 @@
 
 @media (max-width: 788px) {
 	.catalog {
+		padding: 0 15px;
 		.head {
 			display: grid;
-			grid-template-rows: repeat(3, 1fr);
 			grid-template-areas:
 				'A A'
 				'B B'
@@ -205,7 +230,7 @@
 				}
 
 				.catalog__head {
-					display: block;
+					display: flex;
 					margin-top: 15px;
 				}
 			}
@@ -213,7 +238,6 @@
 			.catalog__sort {
 				display: flex;
 				flex-direction: column;
-				align-items: start;
 				grid-gap: 10px;
 				grid-area: C;
 			}

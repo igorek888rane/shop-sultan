@@ -42,7 +42,7 @@
 		"brand": "Garnier",
 		"description": "Нежная мицеллярная вода Garnier «3 в 1» бережно снимает макияж, очищает поры и успокаивает кожу. ",
 		"price": 450,
-		"typeCare": ["face", "hands"]
+		"typeCare": ["face", "hands", "body"]
 	},
 	{
 		"imageUrl": {
@@ -72,7 +72,7 @@
 		"brand": "Nivea",
 		"description": "NIVEA Crème — универсальный увлажняющий крем с плотной питательной текстурой для всей семьи",
 		"price": 355,
-		"typeCare": ["body"]
+		"typeCare": ["body", "legs", "hands"]
 	},
 	{
 		"imageUrl": {
@@ -117,7 +117,7 @@
 		"brand": "Мое солнышко",
 		"description": "Крем специально разработан для надёжной защиты детской кожи от солнца, в том числе от солнечных ожогов",
 		"price": 100,
-		"typeCare": ["body"]
+		"typeCare": ["body", "tan"]
 	},
 	{
 		"imageUrl": {
@@ -132,7 +132,7 @@
 		"brand": "Old Spice",
 		"description": "Кто знал, что аромат свободы Wolfthorn может избавить тебя от несвежих и асоциальных запахов?",
 		"price": 350,
-		"typeCare": ["body"]
+		"typeCare": ["body", "hygiene"]
 	},
 	{
 		"imageUrl": {
@@ -162,7 +162,7 @@
 		"brand": "Nivea",
 		"description": "Так приятно, когда находишь средство, идеально подходящее не только для кожи рук, но и для тела и лица!",
 		"price": 299.9,
-		"typeCare": ["body", "face", "hands"]
+		"typeCare": ["body", "face", "hands", "legs"]
 	},
 	{
 		"imageUrl": {
@@ -252,7 +252,7 @@
 		"brand": "Чистая линия",
 		"description": "Алоэ-вера обеспечивает оптимальное увлажнение кожи в течении дня, разглаживает мелкие морщинки, обладает регенерирующими свойствами, придает коже свежесть, благодаря ферментам и витаминам.",
 		"price": 109.9,
-		"typeCare": ["face"]
+		"typeCare": ["face", "paper"]
 	},
 	{
 		"imageUrl": {
@@ -267,6 +267,52 @@
 		"brand": "El'Skin",
 		"description": "Массажная маска-йогурт «КЛУБНИКА» обладает мягкой и нежной текстурой, способствует увлажнению и питанию кожи, оказывает эффект легкого пилинга, придавая коже сияние и свежесть.",
 		"price": 89.99,
-		"typeCare": ["face"]
+		"typeCare": ["face", "paper"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/a35/200_160_1/a356a1cdbe81af20343d308148d5b8c9.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/f2e/f2e9a2feb9ed55557c03a0bbe38666bf.jpg"
+		},
+		"name": "Пена для бритья \"Gillette\"",
+		"typeSize": "volume",
+		"size": "200мл",
+		"barcode": "4604049097569",
+		"manufacturer": "Procter&Gamble",
+		"brand": "Gillеttе",
+		"description": "Мужская пена для бритья Gillette Classic Sensitive для чувствительной кожи обладает легким ароматом, легко наносится и полностью смывается, позволяя мужчинам наслаждаться процедурой бритья, как и много лет назад",
+		"price": 169.9,
+		"typeCare": ["shaving"]
+	},
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/166/200_160_1/1669a13d00eeec7565b5d76fcefb9534.png",
+			"large": "https://dostavka.dixy.ru/upload/iblock/afb/afbed0485831216a7dc306b488d6f4de.png"
+		},
+		"name": "Набор подарочный \"Arko\"",
+		"typeSize": "weight",
+		"size": "500г",
+		"barcode": "4604049097577",
+		"manufacturer": "Evyap Sabun. Yag. Gliserin San. ve Tic. A.S",
+		"brand": "Arko",
+		"description": "Какой он, крутой мужчина? Он уверен в себе, успешен и не боится показать себя и свое лицо! Но настоящая уверенность невозможна без гладкой кожи или ухоженной бороды без лишних волосков.",
+		"price": 229.9,
+		"typeCare": ["present", "body", "face"]
+	},
+
+	{
+		"imageUrl": {
+			"small": "https://dostavka.dixy.ru/upload/resize_cache/iblock/1c6/200_160_1/1c6860a7ddc1520b6abe2f595101df99.jpg",
+			"large": "https://dostavka.dixy.ru/upload/iblock/aa2/aa254b643e0eacae86c78223b39ab2f5.jpg"
+		},
+		"name": "Зубная паста \"Aquafresh\"",
+		"typeSize": "volume",
+		"size": "125мл",
+		"barcode": "4604049097580",
+		"manufacturer": "Glaxosmithkline Consumer Healthcare",
+		"brand": "Aquafresh",
+		"description": "Ежедневный уход за полостью рта важен для здоровья ваших зубов и десен. ",
+		"price": 119.9,
+		"typeCare": ["hygiene oral"]
 	}
 ]
