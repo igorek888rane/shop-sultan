@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import products from '../../data/data.json'
+
 export type itemType = { id: string; name: string }
+export type filterType = { name: string; active: boolean }
 
 interface FilterState {
-	brand: string[]
-	manufacturer: string[]
-	filterBrand: string[]
-	filterManufacturer: string[]
+	brand: filterType[]
+	manufacturer: filterType[]
 	typesCare: itemType[]
 	from: string
 	to: string
@@ -14,10 +14,13 @@ interface FilterState {
 }
 
 const initialState: FilterState = {
-	brand: Array.from(new Set(products.map(el => el.brand))),
-	manufacturer: Array.from(new Set(products.map(el => el.manufacturer))),
-	filterBrand: [],
-	filterManufacturer: [],
+	brand: Array.from(new Set(products.map(el => el.brand))).map(el => ({
+		name: el,
+		active: false,
+	})),
+	manufacturer: Array.from(new Set(products.map(el => el.manufacturer))).map(
+		el => ({ name: el, active: false })
+	),
 	typesCare: [
 		{
 			id: 'body',
@@ -82,11 +85,23 @@ const filterSlice = createSlice({
 		setTypeCare(state, action: PayloadAction<string>) {
 			state.typeCare = action.payload
 		},
-		serFilterManufacturer(state, action: PayloadAction<string>) {
-			state.filterManufacturer.push(action.payload)
+		setManufacturer(state, { payload }: PayloadAction<filterType>) {
+			state.manufacturer.forEach(el => {
+				if (el.name === payload.name) {
+					el.active = !el.active
+				}
+			})
+		},
+		setBrand(state, { payload }: PayloadAction<filterType>) {
+			state.brand.forEach(el => {
+				if (el.name === payload.name) {
+					el.active = !el.active
+				}
+			})
 		},
 	},
 })
 
-export const { setFrom, setTo, setTypeCare } = filterSlice.actions
+export const { setFrom, setTo, setTypeCare, setManufacturer, setBrand } =
+	filterSlice.actions
 export default filterSlice.reducer

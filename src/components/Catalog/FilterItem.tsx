@@ -5,10 +5,11 @@ import searchIcon from '../../img/input/search.png'
 import arrow from '../../img/catalog/arrowFilter.png'
 import CheckBox from '../UI/CheckBox/CheckBox'
 import products from '../../data/data.json'
+import { filterType } from '../../store/slice/filterSlice'
 
 interface FilterItemProps {
 	head: { id: string; name: string }
-	items: string[]
+	items: filterType[]
 }
 
 const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
@@ -16,7 +17,7 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 	const [show, setShow] = useState(false)
 	const filterItems = useMemo(() => {
 		const filter = items.filter(i =>
-			i.toLowerCase().includes(search.toLowerCase())
+			i.name.toLowerCase().includes(search.toLowerCase())
 		)
 		if (show) {
 			return filter
@@ -39,10 +40,10 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 			</div>
 			<div className={styles.filter__checkbox}>
 				{filterItems.length ? (
-					filterItems.map(name => (
+					filterItems.map(filter => (
 						<CheckBox
-							key={name}
-							name={name}
+							key={filter.name}
+							filter={filter}
 							products={products}
 							head={head.id}
 						/>
@@ -51,7 +52,7 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 					<p>Ничего не найденно</p>
 				)}
 				<div className={styles.filter__show} onClick={() => setShow(!show)}>
-					<p>Показать все</p>
+					<p>{show ? 'Скрыть' : 'Показать все'}</p>
 					<div className={show ? styles.show : ''}>
 						<img src={arrow} alt='' />
 					</div>
