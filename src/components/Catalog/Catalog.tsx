@@ -20,6 +20,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	const { typeCare, typesCare, manufacturer, brand, to, from } = useAppSelector(
 		state => state.filter
 	)
+
 	const dispatch = useAppDispatch()
 	const [sortName, setSortName] = useState('name')
 	const [sortBy, setSortBy] = useState('desc')

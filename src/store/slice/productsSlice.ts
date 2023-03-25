@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IProduct } from '../../data/dataTypes'
-import data from '../../data/data.json'
 
 interface ProductsState {
 	products: IProduct[]
 	filterProducts: IProduct[]
+	product: IProduct | null
 }
+
 const initialState: ProductsState = {
-	products: data,
-	filterProducts: data,
+	products: [],
+	filterProducts: [],
+	product: null,
 }
 const productsSlice = createSlice({
 	name: 'products',
@@ -20,8 +22,12 @@ const productsSlice = createSlice({
 		setFilterProducts(state, action: PayloadAction<IProduct[]>) {
 			state.filterProducts = action.payload
 		},
+		setProduct(state, action: PayloadAction<IProduct>) {
+			state.product = action.payload
+		},
 	},
 })
 
-export const { setProducts, setFilterProducts } = productsSlice.actions
+export const { setProducts, setFilterProducts, setProduct } =
+	productsSlice.actions
 export default productsSlice.reducer

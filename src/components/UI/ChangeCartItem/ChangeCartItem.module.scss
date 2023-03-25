@@ -1,0 +1,33 @@
+@import 'src/styles/variable';
+
+.change__cart {
+	display: flex;
+	align-items: center;
+	grid-gap: 20px;
+	.count {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 130%;
+	}
+	.change__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 300;
+		font-size: 12px;
+		line-height: 15px;
+		text-align: center;
+		padding: 4px 13px;
+		background: linear-gradient(
+			90deg,
+			rgba(255, 198, 80, 0.3) 0%,
+			rgba(254, 202, 110, 0.3) 97.25%
+		);
+		border-radius: 1000px;
+		cursor: pointer;
+		&:disabled {
+			opacity: 0.4;
+			color: $black;
+		}
+	}
+}

@@ -46,6 +46,8 @@ body {
 	color: $colorEl;
 
 	main {
+		margin-top: 45px;
+
 		flex: 1;
 		padding-bottom: 203px;
 	}
@@ -58,7 +60,10 @@ body {
 		.path {
 			display: flex;
 			grid-gap: 20px;
-
+			a {
+				text-decoration: none;
+				color: $colorEl;
+			}
 			p {
 				font-weight: 300;
 			}

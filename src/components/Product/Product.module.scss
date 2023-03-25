@@ -1,0 +1,131 @@
+@import 'src/styles/variable';
+
+.product {
+	display: flex;
+	flex-flow: row wrap;
+	grid-gap: 40px;
+	margin-top: 65px;
+
+	.product__img {
+		display: flex;
+		justify-content: center;
+		width: 450px;
+		height: 471px;
+
+		img {
+			max-width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	.product__info {
+		display: flex;
+		flex-direction: column;
+		.product__available {
+			color: #1fd85d;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 130%;
+		}
+
+		.product__name {
+			color: $black;
+			font-weight: 800;
+			font-size: 30px;
+			line-height: 150%;
+		}
+
+		.product__size {
+			display: flex;
+			grid-gap: 5px;
+			font-weight: 400;
+			font-size: 12px;
+			line-height: 130%;
+		}
+
+		.product__price {
+			display: flex;
+			align-items: center;
+			//justify-content: center;
+			flex-flow: row wrap;
+			grid-gap: 40px;
+			margin-top: 25px;
+			.up {
+				display: none;
+			}
+			@media (max-width: 485px) {
+				.up {
+					display: flex;
+				}
+			}
+		}
+
+		.product__items {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: start;
+			grid-gap: 10px;
+			margin-top: 20px;
+
+			.product__item {
+				display: flex;
+				grid-gap: 13px;
+				align-items: center;
+				box-shadow: 0 15px 70px -11px rgba(43, 28, 1, 0.04);
+				border-radius: 10px;
+				height: 77px;
+				max-width: 316px;
+				p {
+					text-align: center;
+				}
+				.bold {
+					font-weight: 700;
+				}
+			}
+			@media (max-width: 485px) {
+				.up {
+					display: none;
+				}
+			}
+		}
+		.product__characteristic {
+			display: flex;
+			flex-direction: column;
+			grid-gap: 5px;
+			margin-top: 35px;
+			.info {
+				font-weight: 500;
+				color: $black;
+			}
+		}
+		.product__description {
+			display: flex;
+			flex-direction: column;
+			grid-gap: 10px;
+			margin-top: 30px;
+			p {
+				color: $black;
+				font-weight: 500;
+			}
+			.product__show {
+				display: flex;
+				grid-gap: 5px;
+				align-items: center;
+				cursor: pointer;
+				.show {
+					transform: rotate(180deg);
+				}
+			}
+			.description {
+				font-weight: 400;
+				max-width: 500px;
+			}
+		}
+	}
+}
+
+@media (max-width: 1340px) {
+	.product {
+		justify-content: center;
+	}
+}
