@@ -7,15 +7,21 @@ import Filters from '../UI/Filters/Filters'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import InputPrice from '../UI/InputPrice/InputPrice'
 import { setClear, setFrom, setTo } from '../../store/slice/filterSlice'
+import { setFilterProducts } from '../../store/slice/productsSlice'
+import data from '../../data/data.json'
 
-const CatalogFilters: FC = () => {
+interface CatalogFiltersProps {
+	showFilterProducts: () => void
+}
+
+const CatalogFilters: FC<CatalogFiltersProps> = ({ showFilterProducts }) => {
 	const { brand, manufacturer, typesCare, from, to } = useAppSelector(
 		state => state.filter
 	)
 	const dispatch = useAppDispatch()
-	const showFilterProducts = () => {}
 	const clearFilter = () => {
 		dispatch(setClear())
+		dispatch(setFilterProducts(data))
 	}
 	return (
 		<div className={styles.catalog__filters}>

@@ -1,25 +1,51 @@
 import { ChangeEvent, FC, useState } from 'react'
 import styles from './Catalog.module.scss'
 import arrow from '../../img/catalog/arrow.png'
-
 import Filters from '../UI/Filters/Filters'
 import Select from '../UI/Select/Select'
 import ProductCard from './ProductCard'
 import { IProduct } from '../../data/dataTypes'
 import CatalogFilters from './CatalogFilters'
-import { useAppSelector } from '../../hooks/useApp'
+import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import { useProducts } from '../../hooks/useProducts'
+import { setFilterProducts } from '../../store/slice/productsSlice'
+import { returnCondition } from '../../utils/returnCondition'
 
 interface CatalogProps {
 	header: string
 }
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
-	const { products } = useAppSelector(state => state.products)
-	const { typeCare, typesCare } = useAppSelector(state => state.filter)
+	const { products, filterProducts } = useAppSelector(state => state.products)
+	const { typeCare, typesCare, manufacturer, brand, to, from } = useAppSelector(
+		state => state.filter
+	)
+	const dispatch = useAppDispatch()
 	const [sortName, setSortName] = useState('name')
 	const [sortBy, setSortBy] = useState('desc')
-	const productsFilter = useProducts({ products, typeCare, sortName, sortBy })
+	let productsFilter = useProducts({
+		products: filterProducts,
+		typeCare,
+		sortName,
+		sortBy,
+	})
+
+	const showFilterProducts = () => {
+		let brandActive = brand.filter(el => el.active).map(el => el.name)
+		let manufacturerActive = manufacturer
+			.filter(el => el.active)
+			.map(el => el.name)
+		let filter
+		if (!brandActive.length && !manufacturerActive.length) {
+			filter = products.filter(el => el.price >= +from && el.price <= +to)
+		} else {
+			filter = products.filter(el =>
+				returnCondition({ el, brandActive, manufacturerActive, from, to })
+			)
+		}
+		dispatch(setFilterProducts(filter))
+	}
+
 	return (
 		<div className={styles.catalog}>
 			<div className={styles.head}>
@@ -59,7 +85,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 			</div>
 
 			<div className={styles.catalog__items}>
-				<CatalogFilters />
+				<CatalogFilters showFilterProducts={showFilterProducts} />
 				<div className={styles.catalog__products}>
 					{productsFilter.map(product => (
 						<ProductCard key={product.barcode} product={product as IProduct} />

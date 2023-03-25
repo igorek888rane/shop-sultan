@@ -68,8 +68,8 @@ const initialState: FilterState = {
 			name: 'Бумажная продукция',
 		},
 	],
-	from: '',
-	to: '',
+	from: '0',
+	to: Math.max(...products.map(el => el.price)) + '',
 	typeCare: '',
 	clear: false,
 }
@@ -89,8 +89,8 @@ const filterSlice = createSlice({
 		},
 		setClear(state) {
 			state.clear = !state.clear
-			state.to = ''
-			state.from = ''
+			state.from = '0'
+			state.to = Math.max(...products.map(el => el.price)) + ''
 			state.brand.forEach(el => (el.active = false))
 			state.manufacturer.forEach(el => (el.active = false))
 		},

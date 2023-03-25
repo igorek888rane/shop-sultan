@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useEffect, useMemo, useState } from 'react'
 import styles from './Catalog.module.scss'
 import Input from '../UI/Input/Input'
 import searchIcon from '../../img/input/search.png'
@@ -6,6 +6,7 @@ import arrow from '../../img/catalog/arrowFilter.png'
 import CheckBox from '../UI/CheckBox/CheckBox'
 import products from '../../data/data.json'
 import { filterType } from '../../store/slice/filterSlice'
+import { useAppSelector } from '../../hooks/useApp'
 
 interface FilterItemProps {
 	head: { id: string; name: string }
@@ -15,6 +16,8 @@ interface FilterItemProps {
 const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 	const [search, setSearch] = useState('')
 	const [show, setShow] = useState(false)
+	const { clear } = useAppSelector(state => state.filter)
+
 	const filterItems = useMemo(() => {
 		const filter = items.filter(i =>
 			i.name.toLowerCase().includes(search.toLowerCase())
@@ -25,6 +28,9 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 		filter.length = 4
 		return filter
 	}, [search, show])
+	useEffect(() => {
+		setSearch('')
+	}, [clear])
 
 	return (
 		<div className={styles.filters__item}>
