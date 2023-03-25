@@ -1,12 +1,8 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useState } from 'react'
 import styles from './CheckBox.module.scss'
 import { IProduct } from '../../../data/dataTypes'
-import {
-	filterType,
-	setBrand,
-	setManufacturer,
-} from '../../../store/slice/filterSlice'
-import { useAppDispatch } from '../../../hooks/useApp'
+import { filterType, setFilter } from '../../../store/slice/filterSlice'
+import { useAppDispatch, useAppSelector } from '../../../hooks/useApp'
 
 interface InputProps {
 	filter: filterType
@@ -18,20 +14,18 @@ const CheckBox: FC<InputProps> = ({ filter, head, products }) => {
 	let count = products?.filter(el => el[head as keyof IProduct] === filter.name)
 	const [checkBox, setCheckBox] = useState<boolean>(false)
 	const dispatch = useAppDispatch()
-	const returnAction = (head: string) => {
-		switch (head) {
-			case 'brand':
-				return setBrand
-
-			case 'manufacturer':
-				return setManufacturer
+	const { clear } = useAppSelector(state => state.filter)
+	useEffect(() => {
+		if (!filter.active) {
+			setCheckBox(false)
 		}
-	}
+	}, [clear])
+
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setCheckBox(e.target.checked)
-		const setFilter = returnAction(head)
-		// @ts-ignore
-		dispatch(setFilter(filter))
+		dispatch(
+			setFilter({ filter: filter.name, active: e.target.checked, name: head })
+		)
 	}
 	return (
 		<div className={styles.checkbox__block}>

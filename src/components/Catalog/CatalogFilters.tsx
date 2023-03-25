@@ -6,7 +6,7 @@ import Button from '../UI/Button/Button'
 import Filters from '../UI/Filters/Filters'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import InputPrice from '../UI/InputPrice/InputPrice'
-import { setFrom, setTo } from '../../store/slice/filterSlice'
+import { setClear, setFrom, setTo } from '../../store/slice/filterSlice'
 
 const CatalogFilters: FC = () => {
 	const { brand, manufacturer, typesCare, from, to } = useAppSelector(
@@ -14,7 +14,9 @@ const CatalogFilters: FC = () => {
 	)
 	const dispatch = useAppDispatch()
 	const showFilterProducts = () => {}
-	const clearFilter = () => {}
+	const clearFilter = () => {
+		dispatch(setClear())
+	}
 	return (
 		<div className={styles.catalog__filters}>
 			<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ </p>

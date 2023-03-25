@@ -11,6 +11,7 @@ interface FilterState {
 	from: string
 	to: string
 	typeCare: string
+	clear: boolean
 }
 
 const initialState: FilterState = {
@@ -70,6 +71,7 @@ const initialState: FilterState = {
 	from: '',
 	to: '',
 	typeCare: '',
+	clear: false,
 }
 
 const filterSlice = createSlice({
@@ -85,23 +87,39 @@ const filterSlice = createSlice({
 		setTypeCare(state, action: PayloadAction<string>) {
 			state.typeCare = action.payload
 		},
-		setManufacturer(state, { payload }: PayloadAction<filterType>) {
-			state.manufacturer.forEach(el => {
-				if (el.name === payload.name) {
-					el.active = !el.active
-				}
-			})
+		setClear(state) {
+			state.clear = !state.clear
+			state.to = ''
+			state.from = ''
+			state.brand.forEach(el => (el.active = false))
+			state.manufacturer.forEach(el => (el.active = false))
 		},
-		setBrand(state, { payload }: PayloadAction<filterType>) {
-			state.brand.forEach(el => {
-				if (el.name === payload.name) {
-					el.active = !el.active
-				}
-			})
+		setFilter(
+			state,
+			{
+				payload,
+			}: PayloadAction<{ filter: string; active: boolean; name: string }>
+		) {
+			switch (payload.name) {
+				case 'manufacturer':
+					state.manufacturer.forEach(el => {
+						if (el.name === payload.filter) {
+							el.active = payload.active
+						}
+					})
+					break
+				case 'brand':
+					state.brand.forEach(el => {
+						if (el.name === payload.filter) {
+							el.active = payload.active
+						}
+					})
+					break
+			}
 		},
 	},
 })
 
-export const { setFrom, setTo, setTypeCare, setManufacturer, setBrand } =
+export const { setFrom, setTo, setTypeCare, setFilter, setClear } =
 	filterSlice.actions
 export default filterSlice.reducer
