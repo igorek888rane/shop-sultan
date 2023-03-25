@@ -15,13 +15,14 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 	const [search, setSearch] = useState('')
 	const [show, setShow] = useState(false)
 	const filterItems = useMemo(() => {
-		const f = items.filter(i => i.toLowerCase().includes(search.toLowerCase()))
+		const filter = items.filter(i =>
+			i.toLowerCase().includes(search.toLowerCase())
+		)
 		if (show) {
-			return f
-		} else {
-			f.length = 4
-			return f
+			return filter
 		}
+		filter.length = 4
+		return filter
 	}, [search, show])
 
 	return (
