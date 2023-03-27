@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styles from './Filters.module.scss'
-import { useAppDispatch, useAppSelector } from '../../../hooks/useApp'
+import { useAppDispatch } from '../../../hooks/useApp'
 import { itemType, setTypeCare } from '../../../store/slice/filterSlice'
 
 interface FiltersProps {
@@ -9,25 +9,18 @@ interface FiltersProps {
 }
 
 const Filters: FC<FiltersProps> = ({ items, direction }) => {
-	const { typeCare } = useAppSelector(state => state.filter)
 	const dispatch = useAppDispatch()
-	const handleClick = (item: itemType) => {
-		if (item.id === typeCare) {
-			dispatch(setTypeCare(''))
-		} else {
-			dispatch(setTypeCare(item.id))
-		}
-	}
+
 	return (
 		<div
 			className={`${styles.filters} ${direction ? `${styles.column}` : ''} `}
 		>
 			{items.map(item => (
 				<div
-					onClick={() => handleClick(item)}
-					key={item.id}
+					onClick={() => dispatch(setTypeCare(item.name))}
+					key={item.name}
 					className={`${styles.filters__item} ${
-						typeCare === item.id ? `${styles.active}` : ''
+						item.active ? `${styles.active}` : ''
 					} `}
 				>
 					<p className={styles.filters__text}>{item.name}</p>

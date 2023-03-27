@@ -17,7 +17,7 @@ interface CatalogProps {
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
 	const { products, filterProducts } = useAppSelector(state => state.products)
-	const { typeCare, typesCare, manufacturer, brand, to, from } = useAppSelector(
+	const { typesCare, manufacturer, brand, to, from } = useAppSelector(
 		state => state.filter
 	)
 
@@ -26,11 +26,11 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	const [sortBy, setSortBy] = useState('desc')
 	let productsFilter = useProducts({
 		products: filterProducts,
-		typeCare,
+		typesCare,
 		sortName,
 		sortBy,
 	})
-
+	console.log(productsFilter)
 	const showFilterProducts = () => {
 		let brandActive = brand.filter(el => el.active).map(el => el.name)
 		let manufacturerActive = manufacturer
@@ -89,7 +89,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 				<CatalogFilters showFilterProducts={showFilterProducts} />
 				<div className={styles.catalog__products}>
 					{productsFilter.map(product => (
-						<ProductCard key={product.barcode} product={product as IProduct} />
+						<ProductCard key={product?.barcode} product={product as IProduct} />
 					))}
 				</div>
 			</div>

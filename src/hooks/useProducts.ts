@@ -1,6 +1,7 @@
 import { IProduct } from '../data/dataTypes'
 import { useMemo } from 'react'
 import { quickSort } from '../utils/quickSort'
+import { itemType } from '../store/slice/filterSlice'
 
 interface IUseSortByProducts {
 	products: IProduct[]
@@ -9,7 +10,7 @@ interface IUseSortByProducts {
 }
 
 interface IUseProducts extends IUseSortByProducts {
-	typeCare: string
+	typesCare: itemType[]
 }
 
 export const useSortByProducts = ({
@@ -27,15 +28,27 @@ export const useSortByProducts = ({
 }
 export const useProducts = ({
 	products,
-	typeCare,
+	typesCare,
 	sortName,
 	sortBy,
 }: IUseProducts) => {
 	const sortedPosts = useSortByProducts({ products, sortName, sortBy })
+	const activeTypesCare = typesCare.filter(el => el.active).map(el => el.name)
+
 	return useMemo(() => {
-		if (!typeCare) {
+		if (!activeTypesCare.length) {
 			return sortedPosts
 		}
-		return sortedPosts.filter(product => product.typeCare.includes(typeCare))
-	}, [sortedPosts, typeCare])
+		return sortedPosts
+			.map(product => {
+				for (let i = 0; i < product.typeCare.length; i++) {
+					for (let j = 0; j < activeTypesCare.length; j++) {
+						if (product.typeCare[i] == activeTypesCare[j]) {
+							return product
+						}
+					}
+				}
+			})
+			.filter(el => el)
+	}, [sortedPosts, typesCare])
 }
