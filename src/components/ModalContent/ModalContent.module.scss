@@ -1,0 +1,29 @@
+@import 'src/styles/variable';
+
+.modal__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	img {
+		width: 59px;
+		height: 59px;
+	}
+	p {
+		text-align: center;
+	}
+	.main__text {
+		font-weight: 500;
+		font-size: 40px;
+		line-height: 120%;
+		color: $black;
+		margin-top: 24px;
+	}
+	.sub__text {
+		font-style: normal;
+		font-weight: 300;
+		font-size: 20px;
+		line-height: 120%;
+		margin-top: 20px;
+	}
+}

@@ -1,0 +1,40 @@
+@import 'src/styles/variable';
+
+.modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999999999999;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.4);
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.5s;
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+}
+
+.modal__content {
+	background-color: #ffff;
+	transform: scale(0.5);
+	transition: 0.4s all;
+	padding: 106px 134px;
+	&.active {
+		transform: scale(1);
+	}
+}
+
+.close {
+	position: absolute;
+	top: 36px;
+	right: 36px;
+	z-index: 99999999;
+	cursor: pointer;
+}

@@ -26,13 +26,13 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
 						<img src={item.typeSize === 'volume' ? volume : weight} alt='' />
 						<p>{item.size}</p>
 					</div>
-					<div className={styles.product__name}>{item.name}</div>
+					<div className={styles.bold}>{item.name}</div>
 					<div className={styles.product__description}>{item.description}</div>
 				</div>
 			</div>
 			<div className={styles.product__price}>
 				<ChangeCartItem product={item} />
-				<p className={styles.product__name}>{item.price * item.amount} ₽</p>
+				<p className={styles.bold}>{(item.price * item.amount).toFixed(2)} ₽</p>
 				<Button
 					onClick={() => {
 						dispatch(removeItem(item.barcode))

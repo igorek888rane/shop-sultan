@@ -4,6 +4,13 @@
 	display: flex;
 	flex-direction: column;
 	margin-top: 50px;
+	.bold {
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 36px;
+		color: $black;
+		max-width: 480px;
+	}
 	.cart__header {
 		border-bottom: 1px solid $colorEl;
 		padding-bottom: 50px;
@@ -19,13 +26,7 @@
 		margin-top: 50px;
 		padding-bottom: 65px;
 		border-bottom: 1px solid $colorEl;
-		.product__name {
-			font-weight: 700;
-			font-size: 30px;
-			line-height: 36px;
-			color: $black;
-			max-width: 480px;
-		}
+
 		.cart__product {
 			display: flex;
 			flex-flow: row wrap;
@@ -71,5 +72,11 @@
 		justify-content: center;
 		align-items: center;
 		padding: 100px 0;
+	}
+	.cart__submit {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 50px;
 	}
 }

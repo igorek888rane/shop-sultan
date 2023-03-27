@@ -11,6 +11,7 @@ import Input from '../UI/Input/Input'
 import InfoItem from '../UI/InfoItem/InfoItem'
 import { useAppSelector } from '../../hooks/useApp'
 import { Link } from 'react-router-dom'
+import { calcValue } from '../../utils/calcValue'
 
 const HeaderDown: FC = () => {
 	const { cart } = useAppSelector(state => state.cart)
@@ -49,13 +50,18 @@ const HeaderDown: FC = () => {
 			</div>
 			<Link to={'cart'} className={`${styles.item} ${styles.cart__item}`}>
 				<div className={styles.item__img}>
-					<div className={styles.cart_count}>{cart.length}</div>
-
+					{cart.length > 0 && (
+						<div className={styles.cart_count}>
+							{calcValue(cart).totalCount}
+						</div>
+					)}
 					<img src={cartIcon} alt='' />
 				</div>
 				<div className={styles.item__text}>
 					<p className={styles.text__hours}>Корзина</p>
-					<p className={styles.text__number}>0 ₽</p>
+					<p className={styles.text__number}>
+						{cart.length && calcValue(cart).totalPrice.toFixed(2)} ₽
+					</p>
 				</div>
 			</Link>
 		</div>
