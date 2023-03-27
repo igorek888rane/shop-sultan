@@ -16,4 +16,9 @@
 		font-size: 14px;
 		font-weight: 700;
 	}
+
+	&:active {
+		background-color: #ffff;
+		color: $yellow;
+	}
 }
