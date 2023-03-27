@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IProduct } from '../../data/dataTypes'
 
-interface ICart extends IProduct {
+export interface ICart extends IProduct {
 	amount: number
 }
 
@@ -35,8 +35,11 @@ const cartSlice = createSlice({
 				state.cart = [...state.cart, { ...payload.product, amount: 1 }]
 			}
 		},
+		removeItem(state, action: PayloadAction<string>) {
+			state.cart = state.cart.filter(item => item.barcode !== action.payload)
+		},
 	},
 })
 
-export const { setCart } = cartSlice.actions
+export const { setCart, removeItem } = cartSlice.actions
 export default cartSlice.reducer

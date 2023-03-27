@@ -23,7 +23,7 @@ const CatalogPage: FC = () => {
 		}
 	}, [])
 	return (
-		<main className={styles.catalog}>
+		<main className={styles.catalog__page}>
 			<div className={'content'}>
 				<div className={'path'}>
 					<p>Главная</p>
