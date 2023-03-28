@@ -30,7 +30,6 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 		sortName,
 		sortBy,
 	})
-	console.log(productsFilter)
 	const showFilterProducts = () => {
 		let brandActive = brand.filter(el => el.active).map(el => el.name)
 		let manufacturerActive = manufacturer

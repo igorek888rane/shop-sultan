@@ -4,23 +4,24 @@ import logo from '../../img/header/Logo.png'
 import catalog from '../../img/header/catalog.png'
 import download from '../../img/header/download.png'
 import support from '../../img/header/support.png'
-import cartIcon from '../../img/header/cart_icon.png'
+import burger from '../../img/header/burger.png'
 import search from '../../img/input/search.png'
 import Button from '../UI/Button/Button'
 import Input from '../UI/Input/Input'
 import InfoItem from '../UI/InfoItem/InfoItem'
-import { useAppSelector } from '../../hooks/useApp'
 import { Link } from 'react-router-dom'
-import { calcValue } from '../../utils/calcValue'
+import CartIcon from './CartIcon'
 
 const HeaderDown: FC = () => {
-	const { cart } = useAppSelector(state => state.cart)
 	return (
 		<div className={`${styles.header__down} content`}>
-			<div className={styles.item}>
+			<div className={styles.burger}>
+				<img src={burger} alt='' />
+			</div>
+			<div className={`${styles.item} ${styles.logo__item}`}>
 				<img src={logo} alt='' />
 			</div>
-			<div className={styles.item}>
+			<div className={`${styles.item} `}>
 				<Link to={'/'}>
 					<Button>
 						<p>Каталог</p>
@@ -48,22 +49,7 @@ const HeaderDown: FC = () => {
 					<img src={download} alt='' />
 				</Button>
 			</div>
-			<Link to={'cart'} className={`${styles.item} ${styles.cart__item}`}>
-				<div className={styles.item__img}>
-					{cart.length > 0 && (
-						<div className={styles.cart_count}>
-							{calcValue(cart).totalCount}
-						</div>
-					)}
-					<img src={cartIcon} alt='' />
-				</div>
-				<div className={styles.item__text}>
-					<p className={styles.text__hours}>Корзина</p>
-					<p className={styles.text__number}>
-						{cart.length && calcValue(cart).totalPrice.toFixed(2)} ₽
-					</p>
-				</div>
-			</Link>
+			<CartIcon />
 		</div>
 	)
 }
