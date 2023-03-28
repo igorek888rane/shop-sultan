@@ -11,8 +11,8 @@ import visa from '../../img/footer/visa.png'
 import mastercard from '../../img/footer/mastercard.png'
 
 import Button from '../UI/Button/Button'
-import ContactItem from '../UI/ContactItem/ContactItem'
-import InfoItem from '../UI/InfoItem/InfoItem'
+import ContactItem from '../ContactItem/ContactItem'
+import InfoItem from '../InfoItem/InfoItem'
 import FooterImg from './FooterImg'
 
 const Footer: FC = () => {
@@ -37,31 +37,31 @@ const Footer: FC = () => {
 				<FooterItem
 					header={'Меню сайта:'}
 					item={[
-						<a>О компании</a>,
-						<a>Доставка и оплата</a>,
-						<a>Возврат</a>,
-						<a>Контакты</a>,
+						<a key={'О компании'}>О компании</a>,
+						<a key={'Доставка и оплата'}>Доставка и оплата</a>,
+						<a key={'Возврат'}>Возврат</a>,
+						<a key={'Контакты'}>Контакты</a>,
 					]}
 				/>
 				<FooterItem
 					header={'Категории:'}
 					item={[
-						<a>Бытовая химия</a>,
-						<a>Косметика и гигиена</a>,
-						<a>Товары для дома</a>,
-						<a>Товары для детей и мам</a>,
-						<a>Посуда</a>,
+						<a key={'Бытовая химия'}>Бытовая химия</a>,
+						<a key={'Косметика и гигиена'}>Косметика и гигиена</a>,
+						<a key={'Товары для дома'}>Товары для дома</a>,
+						<a key={'Товары для детей и мам'}>Товары для детей и мам</a>,
+						<a key={'Посуда'}>Посуда</a>,
 					]}
 				/>
 				<FooterItem
 					className={styles.footer__price}
 					header={'Скачать прайс-лист:'}
 					item={[
-						<Button>
+						<Button key={'button'}>
 							<p>Прайс-лист</p>
 							<img src={download} alt='' />
 						</Button>,
-						<div className={styles.footer__info}>
+						<div className={styles.footer__info} key={'info'}>
 							<p className={styles.footer__text}>Связь в мессенджерах:</p>
 							<FooterImg img1={whatsup} img2={telegram} />
 						</div>,
@@ -71,15 +71,17 @@ const Footer: FC = () => {
 					header={'Контакты:'}
 					item={[
 						<InfoItem
+							key={'number'}
 							number={'+7 (777) 490-00-91'}
 							hour={'время работы: 9:00-20:00'}
 							text={'Заказать звонок'}
 						/>,
 						<ContactItem
+							key={'contact'}
 							textMain={'opt.sultan@mail.ru'}
 							textSub={'На связи в любое время'}
 						/>,
-						<FooterImg img1={visa} img2={mastercard} />,
+						<FooterImg img1={visa} img2={mastercard} key={'img'} />,
 					]}
 				/>
 			</div>

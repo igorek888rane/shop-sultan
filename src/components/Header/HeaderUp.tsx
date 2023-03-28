@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styles from './Header.module.scss'
-import ContactItem from '../UI/ContactItem/ContactItem'
+import ContactItem from '../ContactItem/ContactItem'
 import geo from '../../img/header/geo.png'
 import mail from '../../img/header/mail_icon.png'
 

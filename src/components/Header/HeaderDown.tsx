@@ -8,7 +8,7 @@ import burger from '../../img/header/burger.png'
 import search from '../../img/input/search.png'
 import Button from '../UI/Button/Button'
 import Input from '../UI/Input/Input'
-import InfoItem from '../UI/InfoItem/InfoItem'
+import InfoItem from '../InfoItem/InfoItem'
 import { Link } from 'react-router-dom'
 import CartIcon from './CartIcon'
 

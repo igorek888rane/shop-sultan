@@ -11,6 +11,7 @@ import { useProducts } from '../../hooks/useProducts'
 import { setFilterProducts } from '../../store/slice/productsSlice'
 import { returnCondition } from '../../utils/returnCondition'
 import { useResize } from '../../hooks/useResize'
+import Pagination from '../UI/Pagination/Pagination'
 
 interface CatalogProps {
 	header: string
@@ -102,6 +103,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 					{productsFilter.map(product => (
 						<ProductCard key={product?.barcode} product={product as IProduct} />
 					))}
+					<Pagination />
 				</div>
 			</div>
 		</div>
