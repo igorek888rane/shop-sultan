@@ -14,7 +14,7 @@ const ProductPage: FC = () => {
 		if (product) {
 			dispatch(setProduct(product))
 		}
-	}, [])
+	}, [product])
 	return (
 		<main className={styles.product__page}>
 			<div className={'content'}>

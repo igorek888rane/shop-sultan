@@ -25,6 +25,8 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	const dispatch = useAppDispatch()
 	const [sortName, setSortName] = useState('name')
 	const [sortBy, setSortBy] = useState('desc')
+	const [showFilter, setShowFilter] = useState(false)
+
 	let productsFilter = useProducts({
 		products: filterProducts,
 		typesCare,
@@ -46,7 +48,6 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 		}
 		dispatch(setFilterProducts(filter))
 	}
-	const [showFilter, setShowFilter] = useState(false)
 
 	return (
 		<div className={styles.catalog}>

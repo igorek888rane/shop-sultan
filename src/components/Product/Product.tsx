@@ -3,7 +3,7 @@ import styles from './Product.module.scss'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import volume from '../../img/catalog/volume.png'
 import weight from '../../img/catalog/weight.png'
-import { setCart } from '../../store/slice/cartSlice'
+import { changeCart } from '../../store/slice/cartSlice'
 import cart from '../../img/catalog/cart.png'
 import share from '../../img/product/share.png'
 import download from '../../img/product/download.png'
@@ -32,7 +32,9 @@ const Product: FC = () => {
 					<p className={styles.product__name}>{product?.price} ₽</p>
 					<ChangeCartItem product={product} />
 					<Button
-						onClick={() => product && dispatch(setCart({ product, amount: 1 }))}
+						onClick={() =>
+							product && dispatch(changeCart({ product, amount: 1 }))
+						}
 						style={{ padding: '21px 25px ' }}
 					>
 						<p>В КОРЗИНУ</p>

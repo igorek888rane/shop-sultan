@@ -5,7 +5,7 @@ import weight from '../../img/catalog/weight.png'
 import cart from '../../img/catalog/cart.png'
 import { IProduct } from '../../data/dataTypes'
 import Button from '../UI/Button/Button'
-import { setCart } from '../../store/slice/cartSlice'
+import { changeCart } from '../../store/slice/cartSlice'
 import { useAppDispatch } from '../../hooks/useApp'
 import { Link } from 'react-router-dom'
 
@@ -39,7 +39,7 @@ const ProductCard: FC<ProductProps> = ({ product }) => {
 			<div className={styles.product__cart}>
 				<p className={styles.product__cart__price}>{product.price}₽</p>
 				<Button
-					onClick={() => dispatch(setCart({ product, amount: 1 }))}
+					onClick={() => dispatch(changeCart({ product, amount: 1 }))}
 					style={{ padding: '21px 25px ' }}
 				>
 					<p>В КОРЗИНУ</p>
