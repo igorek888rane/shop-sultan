@@ -13,6 +13,9 @@ const Layout: FC = () => {
 	useEffect(() => {
 		const localStorageProducts = localStorage.getItem('products')
 		if (localStorageProducts) {
+			if (localStorageProducts.length !== data.length) {
+				localStorage.setItem('products', JSON.stringify(data))
+			}
 			dispatch(setProducts(JSON.parse(localStorageProducts as string)))
 			dispatch(setFilterProducts(JSON.parse(localStorageProducts as string)))
 			return
