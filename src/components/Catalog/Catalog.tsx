@@ -100,10 +100,17 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 					className={styles.catalog__products}
 					style={useResize() ? { display: !showFilter ? 'flex' : 'none' } : {}}
 				>
-					{productsFilter.map(product => (
-						<ProductCard key={product?.barcode} product={product as IProduct} />
-					))}
-					<Pagination />
+					<div className={styles.catalog__products_cards}>
+						{productsFilter.map(product => (
+							<ProductCard
+								key={product?.barcode}
+								product={product as IProduct}
+							/>
+						))}
+					</div>
+					<div className={styles.catalog__pagination}>
+						<Pagination />
+					</div>
 				</div>
 			</div>
 		</div>
