@@ -8,12 +8,17 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import InputPrice from '../UI/InputPrice/InputPrice'
 import { setClear, setFrom, setTo } from '../../store/slice/filterSlice'
 import { setFilterProducts } from '../../store/slice/productsSlice'
+import { useResize } from '../../hooks/useResize'
 
 interface CatalogFiltersProps {
 	showFilterProducts: () => void
+	show: boolean
 }
 
-const CatalogFilters: FC<CatalogFiltersProps> = ({ showFilterProducts }) => {
+const CatalogFilters: FC<CatalogFiltersProps> = ({
+	showFilterProducts,
+	show,
+}) => {
 	const { brand, manufacturer, typesCare, from, to } = useAppSelector(
 		state => state.filter
 	)
@@ -25,7 +30,10 @@ const CatalogFilters: FC<CatalogFiltersProps> = ({ showFilterProducts }) => {
 		dispatch(setFilterProducts(products))
 	}
 	return (
-		<div className={styles.catalog__filters}>
+		<div
+			style={useResize() ? { display: show ? 'flex' : 'none' } : {}}
+			className={styles.catalog__filters}
+		>
 			<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ </p>
 			<div className={styles.filters__item}>
 				<p className={styles.filter__price}>

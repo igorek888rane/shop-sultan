@@ -72,6 +72,29 @@ body {
 				opacity: 0.5;
 			}
 		}
+		.back {
+			display: none;
+			grid-gap: 5px;
+			align-items: center;
+			.arrow {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 32px;
+				height: 32px;
+				padding: 13px;
+				background-color: #ffca65;
+				opacity: 0.3;
+				border-radius: 100px;
+				transform: rotate(90deg);
+				margin-left: 15px;
+			}
+			.text {
+				font-weight: 600;
+				font-size: 10px;
+				line-height: 120%;
+			}
+		}
 	}
 }
 
@@ -82,4 +105,19 @@ h1 {
 h2 {
 	font-size: 1.45em;
 	font-weight: 600;
+}
+
+@media (max-width: 788px) {
+	.App {
+		.content {
+			.path {
+				display: none;
+			}
+			.back {
+				display: flex;
+				.arrow {
+				}
+			}
+		}
+	}
 }

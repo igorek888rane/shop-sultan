@@ -37,7 +37,7 @@ const ProductCard: FC<ProductProps> = ({ product }) => {
 				</p>
 			</div>
 			<div className={styles.product__cart}>
-				<p>{product.price}₽</p>
+				<p className={styles.product__cart__price}>{product.price}₽</p>
 				<Button
 					onClick={() => dispatch(setCart({ product, amount: 1 }))}
 					style={{ padding: '21px 25px ' }}

@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import { useProducts } from '../../hooks/useProducts'
 import { setFilterProducts } from '../../store/slice/productsSlice'
 import { returnCondition } from '../../utils/returnCondition'
+import { useResize } from '../../hooks/useResize'
 
 interface CatalogProps {
 	header: string
@@ -45,6 +46,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 		}
 		dispatch(setFilterProducts(filter))
 	}
+	const [showFilter, setShowFilter] = useState(false)
 
 	return (
 		<div className={styles.catalog}>
@@ -53,7 +55,10 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 					<h1>{header}</h1>
 					<div className={styles.catalog__head}>
 						<p>ПОДБОР ПО ПАРАМЕТРАМ</p>
-						<div className={styles.arrow}>
+						<div
+							onClick={() => setShowFilter(!showFilter)}
+							className={`${styles.arrow} ${showFilter ? styles.show : ''}`}
+						>
 							<img src={arrow} alt='' />
 						</div>
 					</div>
@@ -85,8 +90,14 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 			</div>
 
 			<div className={styles.catalog__items}>
-				<CatalogFilters showFilterProducts={showFilterProducts} />
-				<div className={styles.catalog__products}>
+				<CatalogFilters
+					showFilterProducts={showFilterProducts}
+					show={showFilter}
+				/>
+				<div
+					className={styles.catalog__products}
+					style={useResize() ? { display: !showFilter ? 'flex' : 'none' } : {}}
+				>
 					{productsFilter.map(product => (
 						<ProductCard key={product?.barcode} product={product as IProduct} />
 					))}
