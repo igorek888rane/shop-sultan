@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import cart from './slice/cartSlice'
 import products from './slice/productsSlice'
 import filter from './slice/filterSlice'
+import sort from './slice/sortSlice'
 import modal from './slice/modalSlice'
 import pagination from './slice/paginationSlice'
 
@@ -10,6 +11,7 @@ export const store = configureStore({
 		cart,
 		products,
 		filter,
+		sort,
 		modal,
 		pagination,
 	},

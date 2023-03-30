@@ -1,8 +1,6 @@
-import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import styles from './Catalog.module.scss'
-import arrow from '../../img/catalog/arrow.png'
 import Filters from '../UI/Filters/Filters'
-import Select from '../UI/Select/Select'
 import ProductCard from './ProductCard'
 import { IProduct } from '../../data/dataTypes'
 import CatalogFilters from './CatalogFilters'
@@ -12,6 +10,8 @@ import { setFilterProducts } from '../../store/slice/productsSlice'
 import { returnCondition } from '../../utils/returnCondition'
 import { useResize } from '../../hooks/useResize'
 import Pagination from '../UI/Pagination/Pagination'
+import CatalogSort from './CatalogSort'
+import CatalogHeader from './CatalogHeader'
 
 interface CatalogProps {
 	header: string
@@ -19,14 +19,14 @@ interface CatalogProps {
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
 	const { products, filterProducts } = useAppSelector(state => state.products)
+	const { sortBy, sortName } = useAppSelector(state => state.sort)
 	const { page } = useAppSelector(state => state.pagination)
 	const { typesCare, manufacturer, brand, to, from } = useAppSelector(
 		state => state.filter
 	)
 
 	const dispatch = useAppDispatch()
-	const [sortName, setSortName] = useState('name')
-	const [sortBy, setSortBy] = useState('desc')
+
 	const [showFilter, setShowFilter] = useState(false)
 	const headRef = useRef<HTMLDivElement>(null)
 
@@ -62,41 +62,12 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	return (
 		<div className={styles.catalog}>
 			<div className={styles.head} ref={headRef}>
-				<div className={styles.catalog__header}>
-					<h1>{header}</h1>
-					<div className={styles.catalog__head}>
-						<p>ПОДБОР ПО ПАРАМЕТРАМ</p>
-						<div
-							onClick={() => setShowFilter(!showFilter)}
-							className={`${styles.arrow} ${showFilter ? styles.show : ''}`}
-						>
-							<img src={arrow} alt='' />
-						</div>
-					</div>
-				</div>
-				<div className={styles.catalog__sort}>
-					<p>Сортировка:</p>
-					<Select
-						value={sortName}
-						onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-							setSortName(e.target.value)
-						}
-						item={[
-							{ id: 'price', name: 'Цена' },
-							{ id: 'name', name: 'Название' },
-						]}
-					/>
-					<Select
-						value={sortBy}
-						onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-							setSortBy(e.target.value)
-						}
-						item={[
-							{ id: 'desc', name: 'По убыванию' },
-							{ id: 'asc', name: 'По возрастанию' },
-						]}
-					/>
-				</div>
+				<CatalogHeader
+					header={header}
+					showFilter={showFilter}
+					setShowFilter={setShowFilter}
+				/>
+				<CatalogSort />
 				<Filters items={typesCare} />
 			</div>
 

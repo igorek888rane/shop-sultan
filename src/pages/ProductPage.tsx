@@ -1,9 +1,8 @@
 import { FC, useEffect } from 'react'
-import styles from './ProductPage.module.scss'
 import { Link, useParams } from 'react-router-dom'
-import { setProduct } from '../../store/slice/productsSlice'
-import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
-import Product from '../../components/Product/Product'
+import { setProduct } from '../store/slice/productsSlice'
+import { useAppDispatch, useAppSelector } from '../hooks/useApp'
+import Product from '../components/Product/Product'
 
 const ProductPage: FC = () => {
 	const { id } = useParams()
@@ -16,7 +15,7 @@ const ProductPage: FC = () => {
 		}
 	}, [product])
 	return (
-		<main className={styles.product__page}>
+		<main>
 			<div className={'content'}>
 				<div className={'path'}>
 					<p>Главная</p>
