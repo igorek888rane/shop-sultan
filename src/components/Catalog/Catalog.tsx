@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useRef, useState } from 'react'
 import styles from './Catalog.module.scss'
 import arrow from '../../img/catalog/arrow.png'
 import Filters from '../UI/Filters/Filters'
@@ -28,6 +28,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	const [sortName, setSortName] = useState('name')
 	const [sortBy, setSortBy] = useState('desc')
 	const [showFilter, setShowFilter] = useState(false)
+	const headRef = useRef<HTMLDivElement>(null)
 
 	const startIndex = (page - 1) * 10
 	const endIndex = page * 10
@@ -53,9 +54,14 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 		dispatch(setFilterProducts(filter))
 	}
 
+	useEffect(() => {
+		if (headRef.current) {
+			headRef.current.scrollIntoView({ block: 'start', behavior: 'smooth' })
+		}
+	}, [page])
 	return (
 		<div className={styles.catalog}>
-			<div className={styles.head}>
+			<div className={styles.head} ref={headRef}>
 				<div className={styles.catalog__header}>
 					<h1>{header}</h1>
 					<div className={styles.catalog__head}>
