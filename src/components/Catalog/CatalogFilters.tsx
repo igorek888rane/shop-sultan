@@ -12,12 +12,14 @@ import { useResize } from '../../hooks/useResize'
 
 interface CatalogFiltersProps {
 	showFilterProducts: () => void
-	show: boolean
+	showFilter: boolean
+	setShowFilter: (show: boolean) => void
 }
 
 const CatalogFilters: FC<CatalogFiltersProps> = ({
 	showFilterProducts,
-	show,
+	showFilter,
+	setShowFilter,
 }) => {
 	const { brand, manufacturer, typesCare, from, to } = useAppSelector(
 		state => state.filter
@@ -25,13 +27,18 @@ const CatalogFilters: FC<CatalogFiltersProps> = ({
 	const { products } = useAppSelector(state => state.products)
 
 	const dispatch = useAppDispatch()
+	const isResize = useResize()
+
 	const clearFilter = () => {
 		dispatch(setClear())
 		dispatch(setFilterProducts(products))
+		if (isResize) {
+			setShowFilter(!showFilter)
+		}
 	}
 	return (
 		<div
-			style={useResize() ? { display: show ? 'flex' : 'none' } : {}}
+			style={isResize ? { display: showFilter ? 'flex' : 'none' } : {}}
 			className={styles.catalog__filters}
 		>
 			<p className={styles.catalog__head}>ПОДБОР ПО ПАРАМЕТРАМ </p>

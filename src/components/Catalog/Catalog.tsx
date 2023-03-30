@@ -26,7 +26,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	)
 
 	const dispatch = useAppDispatch()
-
+	const isResize = useResize()
 	const [showFilter, setShowFilter] = useState(false)
 	const headRef = useRef<HTMLDivElement>(null)
 
@@ -52,6 +52,9 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 			)
 		}
 		dispatch(setFilterProducts(filter))
+		if (isResize) {
+			setShowFilter(!showFilter)
+		}
 	}
 
 	useEffect(() => {
@@ -74,11 +77,12 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 			<div className={styles.catalog__items}>
 				<CatalogFilters
 					showFilterProducts={showFilterProducts}
-					show={showFilter}
+					showFilter={showFilter}
+					setShowFilter={setShowFilter}
 				/>
 				<div
 					className={styles.catalog__products}
-					style={useResize() ? { display: !showFilter ? 'flex' : 'none' } : {}}
+					style={isResize ? { display: !showFilter ? 'flex' : 'none' } : {}}
 				>
 					<div className={styles.catalog__products_cards}>
 						{productsFilter.slice(startIndex, endIndex).map(product => (
