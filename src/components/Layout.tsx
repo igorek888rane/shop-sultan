@@ -21,6 +21,8 @@ const Layout: FC = () => {
 			return
 		}
 		localStorage.setItem('products', JSON.stringify(data))
+		dispatch(setProducts(data))
+		dispatch(setFilterProducts(data))
 	}, [])
 	useEffect(() => {
 		if (localStorage.getItem('cart')) {
