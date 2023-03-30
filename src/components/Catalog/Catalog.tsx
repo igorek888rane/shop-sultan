@@ -31,7 +31,6 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 
 	const startIndex = (page - 1) * 10
 	const endIndex = page * 10
-	console.log(startIndex, endIndex)
 	let productsFilter = useProducts({
 		products: filterProducts,
 		typesCare,
@@ -113,7 +112,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 						))}
 					</div>
 					<div className={styles.catalog__pagination}>
-						<Pagination />
+						<Pagination products={productsFilter as IProduct[]} />
 					</div>
 				</div>
 			</div>
