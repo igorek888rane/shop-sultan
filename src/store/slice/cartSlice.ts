@@ -37,16 +37,12 @@ const cartSlice = createSlice({
 			} else {
 				state.cart = [...state.cart, { ...payload.product, amount: 1 }]
 			}
-
-			// localStorage.setItem('cart', JSON.stringify(state.cart))
 		},
 		removeItem(state, action: PayloadAction<string>) {
 			state.cart = state.cart.filter(item => item.barcode !== action.payload)
-			// localStorage.setItem('cart', JSON.stringify(state.cart))
 		},
 		clearCart(state) {
 			state.cart = []
-			// localStorage.removeItem('cart')
 		},
 	},
 })

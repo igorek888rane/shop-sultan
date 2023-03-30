@@ -19,6 +19,7 @@ interface CatalogProps {
 
 const Catalog: FC<CatalogProps> = ({ header }) => {
 	const { products, filterProducts } = useAppSelector(state => state.products)
+	const { page } = useAppSelector(state => state.pagination)
 	const { typesCare, manufacturer, brand, to, from } = useAppSelector(
 		state => state.filter
 	)
@@ -28,6 +29,9 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 	const [sortBy, setSortBy] = useState('desc')
 	const [showFilter, setShowFilter] = useState(false)
 
+	const startIndex = (page - 1) * 10
+	const endIndex = page * 10
+	console.log(startIndex, endIndex)
 	let productsFilter = useProducts({
 		products: filterProducts,
 		typesCare,
@@ -101,7 +105,7 @@ const Catalog: FC<CatalogProps> = ({ header }) => {
 					style={useResize() ? { display: !showFilter ? 'flex' : 'none' } : {}}
 				>
 					<div className={styles.catalog__products_cards}>
-						{productsFilter.map(product => (
+						{productsFilter.slice(startIndex, endIndex).map(product => (
 							<ProductCard
 								key={product?.barcode}
 								product={product as IProduct}

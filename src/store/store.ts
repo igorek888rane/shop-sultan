@@ -3,6 +3,7 @@ import cart from './slice/cartSlice'
 import products from './slice/productsSlice'
 import filter from './slice/filterSlice'
 import modal from './slice/modalSlice'
+import pagination from './slice/paginationSlice'
 
 export const store = configureStore({
 	reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
 		products,
 		filter,
 		modal,
+		pagination,
 	},
 })
 
