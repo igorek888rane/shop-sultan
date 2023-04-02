@@ -42,6 +42,8 @@
 		padding: 24px 0;
 		.burger {
 			display: none;
+			align-items: center;
+			grid-gap: 5px;
 			width: 32px;
 			height: 32px;
 		}
@@ -126,6 +128,7 @@
 			align-items: center;
 			.item {
 				display: none;
+
 			}
 			.burger {
 				display: flex;

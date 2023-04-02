@@ -3,6 +3,7 @@ import styles from './Header.module.scss'
 import ContactItem from '../ContactItem/ContactItem'
 import geo from '../../img/header/geo.png'
 import mail from '../../img/header/mail_icon.png'
+import { Link } from "react-router-dom";
 
 const HeaderUp: FC = () => {
 	return (
@@ -20,6 +21,7 @@ const HeaderUp: FC = () => {
 				/>
 			</div>
 			<nav className={styles.header__nav}>
+				<Link to={'admin'}>Админка</Link>
 				{['О компании', 'Доставка и оплата', 'Возврат', 'Контакты'].map(a => (
 					<a key={a} className={styles.nav__item} href='#'>
 						{a}

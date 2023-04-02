@@ -5,6 +5,7 @@ import filter from './slice/filterSlice'
 import sort from './slice/sortSlice'
 import modal from './slice/modalSlice'
 import pagination from './slice/paginationSlice'
+import admin from './slice/adminSlice'
 
 export const store = configureStore({
 	reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
 		sort,
 		modal,
 		pagination,
+		admin
 	},
 })
 

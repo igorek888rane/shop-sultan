@@ -4,6 +4,7 @@ import CatalogPage from '../../pages/CatalogPage'
 import CartPage from '../../pages/CartPage'
 import ProductPage from '../../pages/ProductPage'
 import Layout from '../Layout'
+import AdminPage from "../../pages/AdminPage";
 
 const Main: FC = () => {
 	return (
@@ -12,6 +13,7 @@ const Main: FC = () => {
 				<Route index element={<CatalogPage />} />
 				<Route path={'cart'} element={<CartPage />} />
 				<Route path={':id'} element={<ProductPage />} />
+				<Route path={'admin'} element={<AdminPage />} />
 			</Route>
 		</Routes>
 	)

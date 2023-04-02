@@ -17,6 +17,7 @@ const HeaderDown: FC = () => {
 		<div className={`${styles.header__down} content`}>
 			<div className={styles.burger}>
 				<img src={burger} alt='' />
+				<Link to={'admin'}>Админка</Link>
 			</div>
 			<div className={`${styles.item} ${styles.logo__item}`}>
 				<img src={logo} alt='' />

@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import products from '../../data/data.json'
+import { IProduct } from '../../data/dataTypes'
 
 export type itemType = { name: string; active: boolean }
 export type filterType = { name: string; active: boolean }
@@ -15,13 +16,16 @@ interface FilterState {
 let typesCare: string[] = []
 
 products.forEach(el => el.typeCare.forEach(el => typesCare.push(el)))
+const items: IProduct[] = localStorage.getItem('products')
+	? JSON.parse(localStorage.getItem('products') as string)
+	: products
 
 const initialState: FilterState = {
-	brand: Array.from(new Set(products.map(el => el.brand))).map(el => ({
+	brand: Array.from(new Set(items.map(el => el.brand))).map(el => ({
 		name: el,
 		active: false,
 	})),
-	manufacturer: Array.from(new Set(products.map(el => el.manufacturer))).map(
+	manufacturer: Array.from(new Set(items.map(el => el.manufacturer))).map(
 		el => ({ name: el, active: false })
 	),
 	typesCare: Array.from(new Set(typesCare)).map(el => ({
