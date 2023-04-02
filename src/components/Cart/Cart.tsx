@@ -21,7 +21,7 @@ const Cart: FC = () => {
 				<h1>Корзина</h1>
 			</div>
 			{cart.length ? (
-				cart.map(item => <CartItem item={item} />)
+				cart.map(item => <CartItem key={item.barcode} item={item} />)
 			) : (
 				<div className={styles.cart__empty}>
 					<h2>Корзина пуста</h2>
