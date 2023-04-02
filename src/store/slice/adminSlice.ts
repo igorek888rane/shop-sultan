@@ -11,6 +11,7 @@ const initialState: AdminState = {
 		? JSON.parse(localStorage.getItem('products') as string)
 		: data,
 }
+
 const AdminSlice = createSlice({
 	name: 'admin',
 	initialState,
@@ -19,12 +20,23 @@ const AdminSlice = createSlice({
 			state.items = action.payload
 			localStorage.setItem('products', JSON.stringify(state.items))
 		},
+
 		addItem(state, action: PayloadAction<IProduct>) {
 			state.items = [...state.items, action.payload]
 			localStorage.setItem('products', JSON.stringify(state.items))
 		},
-		removeItem(state, action: PayloadAction<string>) {},
-		updateItem(state, action: PayloadAction<string>) {},
+		deleteItem(state, action: PayloadAction<string>) {
+			state.items = state.items.filter(item => item.barcode != action.payload)
+			localStorage.setItem('products', JSON.stringify(state.items))
+		},
+		updateItem(state, { payload }: PayloadAction<IProduct>) {
+			state.items.forEach((item, i) => {
+				if (item.barcode === payload.barcode) {
+					state.items[i] = payload
+				}
+			})
+			localStorage.setItem('products', JSON.stringify(state.items))
+		},
 		clearItems(state) {
 			state.items = []
 			localStorage.removeItem('products')
@@ -32,6 +44,6 @@ const AdminSlice = createSlice({
 	},
 })
 
-export const { setItems, addItem, removeItem, updateItem, clearItems } =
+export const { setItems, addItem, deleteItem, updateItem, clearItems } =
 	AdminSlice.actions
 export default AdminSlice.reducer

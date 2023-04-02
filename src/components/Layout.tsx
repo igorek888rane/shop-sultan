@@ -10,20 +10,7 @@ const Layout: FC = () => {
 	const { cart } = useAppSelector(state => state.cart)
 	const { items } = useAppSelector(state => state.admin)
 	const dispatch = useAppDispatch()
-	// useEffect(() => {
-	// 	const localStorageProducts = localStorage.getItem('products')
-	// 	if (localStorageProducts) {
-	// 		if (localStorageProducts.length !== data.length) {
-	// 			localStorage.setItem('products', JSON.stringify(data))
-	// 		}
-	// 		dispatch(setProducts(JSON.parse(localStorageProducts as string)))
-	// 		dispatch(setFilterProducts(JSON.parse(localStorageProducts as string)))
-	// 		return
-	// 	}
-	// 	localStorage.setItem('products', JSON.stringify(data))
-	// 	dispatch(setProducts(data))
-	// 	dispatch(setFilterProducts(data))
-	// }, [])
+
 	useEffect(() => {
 		const localStorageProducts = localStorage.getItem('products')
 		if (localStorageProducts) {

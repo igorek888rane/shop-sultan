@@ -6,7 +6,7 @@ import InputPrice from '../UI/InputPrice/InputPrice'
 import Select from '../UI/Select/Select'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import Button from '../UI/Button/Button'
-import { addItem } from '../../store/slice/adminSlice'
+import { addItem, updateItem } from '../../store/slice/adminSlice'
 
 interface IFormikValues {
 	imgSmall: string
@@ -19,10 +19,23 @@ interface IFormikValues {
 	price: string
 }
 
-const AdminPanelForm: FC = () => {
-	const [typeSize, setTypeSize] = useState('volume')
+interface AdminPanelFormProps {
+	valuesItem: IFormikValues
+	typeSizeItem: string
+	typesCareActiveItem: string[]
+	barcode?: string
+}
+
+const AdminPanelForm: FC<AdminPanelFormProps> = ({
+	valuesItem,
+	typeSizeItem,
+	typesCareActiveItem,
+	barcode,
+}) => {
+	const [typeSize, setTypeSize] = useState(typeSizeItem)
 	const { typesCare } = useAppSelector(state => state.filter)
-	const [typesCareActive, setTypesCareActive] = useState<string[]>([])
+	const [typesCareActive, setTypesCareActive] =
+		useState<string[]>(typesCareActiveItem)
 	const dispatch = useAppDispatch()
 	const handleChangeCheckbox = (
 		e: ChangeEvent<HTMLInputElement>,
@@ -34,16 +47,7 @@ const AdminPanelForm: FC = () => {
 		setTypesCareActive([...typesCareActive].filter(el => el !== name))
 	}
 	const { values, handleChange, handleSubmit } = useFormik<IFormikValues>({
-		initialValues: {
-			imgSmall: '',
-			imgLarge: '',
-			name: '',
-			size: '',
-			manufacturer: '',
-			brand: '',
-			description: '',
-			price: '',
-		},
+		initialValues: valuesItem,
 		onSubmit: values => {
 			const product: IProduct = {
 				imageUrl: {
@@ -57,18 +61,22 @@ const AdminPanelForm: FC = () => {
 				manufacturer: values.manufacturer,
 				description: values.description,
 				price: +values.price,
-				barcode: String(Date.now()),
+				barcode: barcode ? barcode : String(Date.now()),
 				typeCare: typesCareActive,
 			}
-			console.log(product)
-			Object.keys(values).forEach(el => {
-				values[el as keyof IFormikValues] = ''
-			})
+			if (barcode) {
+				dispatch(updateItem(product))
+				return
+			}
 			setTypesCareActive([])
 			setTypeSize('volume')
 			dispatch(addItem(product))
+			Object.keys(values).forEach(el => {
+				values[el as keyof IFormikValues] = ''
+			})
 		},
 	})
+
 	return (
 		<form className={styles.admin__form}>
 			<InputPrice
@@ -154,7 +162,7 @@ const AdminPanelForm: FC = () => {
 				))}
 			</div>
 			<Button type={'submit'} onClick={handleSubmit}>
-				Добавить
+				{barcode ? 'Редактировать' : 'Добавлять'}
 			</Button>
 		</form>
 	)

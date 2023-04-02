@@ -25,7 +25,22 @@ const AdminPanel: FC = () => {
 					{hidden ? 'Показать форму' : 'Скрыть форму'}
 				</Button>
 			</div>
-			{!hidden && <AdminPanelForm />}
+			{!hidden && (
+				<AdminPanelForm
+					valuesItem={{
+						imgSmall: '',
+						imgLarge: '',
+						name: '',
+						size: '',
+						manufacturer: '',
+						brand: '',
+						description: '',
+						price: '',
+					}}
+					typeSizeItem={'volume'}
+					typesCareActiveItem={[]}
+				/>
+			)}
 			<div className={styles.admin__items}>
 				{items.map(item => (
 					<AdminItemCard key={item.barcode} item={item} />
