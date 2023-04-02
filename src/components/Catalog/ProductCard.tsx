@@ -23,7 +23,9 @@ const ProductCard: FC<ProductProps> = ({ product, adminPanel }) => {
 			</Link>
 			<div className={styles.product__size}>
 				<img src={product.typeSize === 'volume' ? volume : weight} alt='' />
-				<p>{product.size}</p>
+				<p>
+					{product.size} {product.typeSize === 'volume' ? 'мл' : 'г'}{' '}
+				</p>
 			</div>
 			<div className={styles.product__name}>{product.name}</div>
 			<div className={styles.product__info}>

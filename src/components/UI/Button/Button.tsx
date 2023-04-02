@@ -4,12 +4,14 @@ import styles from './Button.module.scss'
 interface ButtonProps {
 	type?: 'submit'
 	style?: object
+	disabled?: boolean
 	onClick?: () => void
 }
 
 const Button: FC<PropsWithChildren<ButtonProps>> = ({
 	type,
 	style,
+	disabled,
 	onClick,
 	children,
 }) => {
@@ -17,6 +19,7 @@ const Button: FC<PropsWithChildren<ButtonProps>> = ({
 		<button
 			type={type ? type : 'button'}
 			style={style}
+			disabled={disabled}
 			className={styles.btn}
 			onClick={onClick}
 		>
