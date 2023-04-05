@@ -2,7 +2,7 @@ import { ChangeEvent, FC, useState } from 'react'
 import styles from './AdminPanel.module.scss'
 import { useFormik } from 'formik'
 import { IProduct } from '../../data/dataTypes'
-import InputPrice from '../UI/InputPrice/InputPrice'
+import Input from '../UI/Input/Input'
 import Select from '../UI/Select/Select'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
 import Button from '../UI/Button/Button'
@@ -47,71 +47,83 @@ const AdminPanelForm: FC<AdminPanelFormProps> = ({
 		}
 		setTypesCareActive([...typesCareActive].filter(el => el !== name))
 	}
-	const { values, handleChange, handleSubmit, errors, isValid } =
-		useFormik<IFormikValues>({
-			initialValues: valuesItem,
-			validationSchema,
-			onSubmit: values => {
-				const product: IProduct = {
-					imageUrl: {
-						small: values.imgSmall,
-						large: values.imgLarge,
-					},
-					name: values.name,
-					typeSize: typeSize,
-					size: values.size,
-					brand: values.brand,
-					manufacturer: values.manufacturer,
-					description: values.description,
-					price: +values.price,
-					barcode: barcode ? barcode : String(Date.now()),
-					typeCare: typesCareActive,
-				}
-				if (barcode) {
-					dispatch(updateItem(product))
-					return
-				}
-				setTypesCareActive([])
-				setTypeSize('volume')
-				dispatch(addItem(product))
-				Object.keys(values).forEach(el => {
-					values[el as keyof IFormikValues] = ''
-				})
-			},
-		})
+	const {
+		values,
+		handleChange,
+		handleSubmit,
+		handleBlur,
+		touched,
+		errors,
+		isValid,
+	} = useFormik<IFormikValues>({
+		initialValues: valuesItem,
+		validationSchema,
+		onSubmit: values => {
+			const product: IProduct = {
+				imageUrl: {
+					small: values.imgSmall,
+					large: values.imgLarge,
+				},
+				name: values.name,
+				typeSize: typeSize,
+				size: values.size,
+				brand: values.brand,
+				manufacturer: values.manufacturer,
+				description: values.description,
+				price: +values.price,
+				barcode: barcode ? barcode : String(Date.now()),
+				typeCare: typesCareActive,
+			}
+			if (barcode) {
+				dispatch(updateItem(product))
+				return
+			}
+			setTypesCareActive([])
+			setTypeSize('volume')
+			dispatch(addItem(product))
+			Object.keys(values).forEach(el => {
+				values[el as keyof IFormikValues] = ''
+			})
+		},
+	})
 
 	return (
 		<form className={styles.admin__form}>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>
-					{errors.imgSmall && errors.imgSmall}
-				</div>
-				<InputPrice
+				{touched.imgSmall && errors.imgSmall && (
+					<div className={styles.form__error}>{errors.imgSmall} </div>
+				)}
+				<Input
 					id={'imgSmall'}
 					value={values.imgSmall}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Url маленькой картинки '}
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>
-					{errors.imgLarge && errors.imgLarge}
-				</div>
-				<InputPrice
+				{touched.imgLarge && errors.imgLarge && (
+					<div className={styles.form__error}>{errors.imgLarge} </div>
+				)}
+				<Input
 					id={'imgLarge'}
 					value={values.imgLarge}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Url большой картинки '}
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>{errors.name && errors.name}</div>
-				<InputPrice
+				{touched.name && errors.name && (
+					<div className={styles.form__error}>{errors.name} </div>
+				)}
+				<Input
 					id={'name'}
 					value={values.name}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Имя товара'}
 				/>
@@ -127,11 +139,14 @@ const AdminPanelForm: FC<AdminPanelFormProps> = ({
 				}
 			/>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>{errors.size && errors.size}</div>
-				<InputPrice
+				{touched.size && errors.size && (
+					<div className={styles.form__error}>{errors.size} </div>
+				)}
+				<Input
 					id={'size'}
 					value={values.size}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={
 						typeSize === 'volume'
@@ -141,45 +156,53 @@ const AdminPanelForm: FC<AdminPanelFormProps> = ({
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>{errors.brand && errors.brand}</div>
-				<InputPrice
+				{touched.brand && errors.brand && (
+					<div className={styles.form__error}>{errors.brand} </div>
+				)}
+				<Input
 					id={'brand'}
 					value={values.brand}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Имя бренда'}
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>
-					{errors.manufacturer && errors.manufacturer}
-				</div>
-				<InputPrice
+				{touched.manufacturer && errors.manufacturer && (
+					<div className={styles.form__error}>{errors.manufacturer} </div>
+				)}
+				<Input
 					id={'manufacturer'}
 					value={values.manufacturer}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Имя производителя '}
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>
-					{errors.description && errors.description}
-				</div>
-				<InputPrice
+				{touched.description && errors.description && (
+					<div className={styles.form__error}>{errors.description} </div>
+				)}
+				<Input
 					id={'description'}
 					value={values.description}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Описание товара'}
 				/>
 			</div>
 			<div className={styles.form__input}>
-				<div className={styles.form__error}>{errors.price && errors.price}</div>
-				<InputPrice
+				{touched.price && errors.price && (
+					<div className={styles.form__error}>{errors.price} </div>
+				)}
+				<Input
 					id={'price'}
 					value={values.price}
 					onChange={handleChange}
+					onBlur={handleBlur}
 					type={'text'}
 					placeholder={'Цена'}
 				/>

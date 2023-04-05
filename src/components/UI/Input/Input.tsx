@@ -1,33 +1,33 @@
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FocusEvent, FC } from 'react'
 import styles from './Input.module.scss'
-import Button from '../Button/Button'
 
 interface InputProps {
+	id?: string
 	type: string
 	placeholder: string
-	img: string
-	value?: string
-	onChange?: (value: string) => void
+	value: string
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void
+	onBlur?: (e: FocusEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = ({ type, placeholder, img, value, onChange }) => {
+const Input: FC<InputProps> = ({
+	id,
+	type,
+	placeholder,
+	value,
+	onChange,
+	onBlur,
+}) => {
 	return (
-		<div className={styles.input__block}>
-			<input
-				className={styles.input}
-				type={type}
-				placeholder={placeholder}
-				value={value}
-				onChange={(e: ChangeEvent<HTMLInputElement>) =>
-					onChange && onChange(e.target.value)
-				}
-			/>
-			<div className={styles.btn}>
-				<Button style={{ padding: '13px' }}>
-					<img src={img} alt='' />
-				</Button>
-			</div>
-		</div>
+		<input
+			id={id}
+			className={styles.input}
+			type={type}
+			placeholder={placeholder}
+			value={value}
+			onChange={onChange}
+			onBlur={onBlur}
+		/>
 	)
 }
 

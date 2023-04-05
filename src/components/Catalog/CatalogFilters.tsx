@@ -5,7 +5,7 @@ import FilterItem from './FilterItem'
 import Button from '../UI/Button/Button'
 import Filters from '../UI/Filters/Filters'
 import { useAppDispatch, useAppSelector } from '../../hooks/useApp'
-import InputPrice from '../UI/InputPrice/InputPrice'
+import Input from '../UI/Input/Input'
 import { setClear, setFrom, setTo } from '../../store/slice/filterSlice'
 import { setFilterProducts } from '../../store/slice/productsSlice'
 import { useResize } from '../../hooks/useResize'
@@ -47,7 +47,7 @@ const CatalogFilters: FC<CatalogFiltersProps> = ({
 					Цена <span>₽</span>
 				</p>
 				<div className={styles.filter__inputs}>
-					<InputPrice
+					<Input
 						type={'text'}
 						placeholder={'от'}
 						value={from}
@@ -56,7 +56,7 @@ const CatalogFilters: FC<CatalogFiltersProps> = ({
 						}
 					/>
 					<p> - </p>
-					<InputPrice
+					<Input
 						type={'text'}
 						placeholder={'до'}
 						value={to}

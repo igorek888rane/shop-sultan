@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import styles from './Header.module.scss'
 import ContactItem from '../ContactItem/ContactItem'
 import geo from '../../img/header/geo.png'
 import mail from '../../img/header/mail_icon.png'
 import { Link } from 'react-router-dom'
 
-const HeaderUp: FC = () => {
+const HeaderUp: FC = memo(() => {
 	return (
 		<div className={`${styles.header__up} content`}>
 			<div className={styles.header__info}>
@@ -32,6 +32,6 @@ const HeaderUp: FC = () => {
 			</nav>
 		</div>
 	)
-}
+})
 
 export default HeaderUp

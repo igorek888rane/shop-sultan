@@ -1,6 +1,6 @@
 import { FC, useEffect, useMemo, useState } from 'react'
 import styles from './Catalog.module.scss'
-import Input from '../UI/Input/Input'
+import InputSearch from '../UI/InputSearch/InputSearch'
 import searchIcon from '../../img/input/search.png'
 import arrow from '../../img/catalog/arrowFilter.png'
 import CheckBox from '../UI/CheckBox/CheckBox'
@@ -36,7 +36,7 @@ const FilterItem: FC<FilterItemProps> = ({ head, items }) => {
 		<div className={styles.filters__item}>
 			<p className={styles.filter__head}>{head.name}</p>
 			<div className={styles.filter__input}>
-				<Input
+				<InputSearch
 					type={'text'}
 					placeholder={'Поиск...'}
 					img={searchIcon}

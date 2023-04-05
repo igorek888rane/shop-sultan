@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import styles from './Cart.module.scss'
 import { ICart, removeItem } from '../../store/slice/cartSlice'
 import volume from '../../img/catalog/volume.png'
@@ -13,7 +13,7 @@ interface CartItemProps {
 	item: ICart
 }
 
-const CartItem: FC<CartItemProps> = ({ item }) => {
+const CartItem: FC<CartItemProps> = memo(({ item }) => {
 	const dispatch = useAppDispatch()
 	return (
 		<div className={styles.cart__item}>
@@ -48,6 +48,6 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default CartItem

@@ -1,17 +1,14 @@
 @import 'src/styles/variable';
-.input__block {
-	display: flex;
-	align-items: center;
-	.input {
-		width: 100%;
-		background: $grey;
-		border-radius: 36px;
-		padding: 20px;
-		outline: none;
-	}
-	.btn {
-		position: relative;
-		top: 0;
-		right: 52px;
-	}
+
+.input {
+	outline: none;
+	margin-top: 16px;
+	width: 100%;
+	padding: 4px 14px;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 198, 80, 0.3) 0%,
+		rgba(254, 202, 110, 0.3) 97.25%
+	);
+	border-radius: 1000px;
 }

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import styles from './Header.module.scss'
 import logo from '../../img/header/Logo.png'
 import catalog from '../../img/header/catalog.png'
@@ -7,12 +7,12 @@ import support from '../../img/header/support.png'
 import burger from '../../img/header/burger.png'
 import search from '../../img/input/search.png'
 import Button from '../UI/Button/Button'
-import Input from '../UI/Input/Input'
+import InputSearch from '../UI/InputSearch/InputSearch'
 import InfoItem from '../InfoItem/InfoItem'
 import { Link } from 'react-router-dom'
 import CartIcon from './CartIcon'
 
-const HeaderDown: FC = () => {
+const HeaderDown: FC = memo(() => {
 	return (
 		<div className={`${styles.header__down} content`}>
 			<div className={styles.burger}>
@@ -31,7 +31,7 @@ const HeaderDown: FC = () => {
 						<img src={catalog} alt='' />
 					</Button>
 				</Link>
-				<Input type={'text'} placeholder={'Поиск...'} img={search} />
+				<InputSearch type={'text'} placeholder={'Поиск...'} img={search} />
 			</div>
 			<div className={styles.item}>
 				<div className={styles.item__text}>
@@ -55,6 +55,6 @@ const HeaderDown: FC = () => {
 			<CartIcon />
 		</div>
 	)
-}
+})
 
 export default HeaderDown

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styles from './Footer.module.scss'
 import logo from '../../img/footer/logo.png'
 import arrow from '../../img/footer/arrow.png'
-import Input from '../UI/Input/Input'
+import InputSearch from '../UI/InputSearch/InputSearch'
 import FooterItem from './FooterItem'
 import download from '../../img/header/download.png'
 import whatsup from '../../img/footer/whatsup.png'
@@ -27,7 +27,7 @@ const Footer: FC = () => {
 					</p>
 					<div className={styles.footer__subscribe}>
 						<p className={styles.footer__text}>Подпишись на скидки и акции</p>
-						<Input
+						<InputSearch
 							type={'text'}
 							placeholder={'Введите ваш E-mail'}
 							img={arrow}
