@@ -4,7 +4,7 @@ import arrow from '../img/catalog/arrow.png'
 
 const CatalogPage: FC = () => {
 	return (
-		<main>
+		<main data-testid='catalog-page'>
 			<div className={'content'}>
 				<div className={'path'}>
 					<p>Главная</p>

@@ -27,7 +27,11 @@ const ProductCard: FC<ProductProps> = ({ product, adminPanel }) => {
 					{product.size} {product.typeSize === 'volume' ? 'мл' : 'г'}{' '}
 				</p>
 			</div>
-			<Link to={`/${product.barcode}`} className={styles.product__name}>
+			<Link
+				to={`/${product.barcode}`}
+				data-testid='product-link'
+				className={styles.product__name}
+			>
 				{product.name}
 			</Link>
 			<div className={styles.product__info}>

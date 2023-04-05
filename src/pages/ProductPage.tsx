@@ -15,7 +15,7 @@ const ProductPage: FC = () => {
 		}
 	}, [product])
 	return (
-		<main>
+		<main data-testid='product-page'>
 			<div className={'content'}>
 				<div className={'path'}>
 					<p>Главная</p>

@@ -14,6 +14,7 @@ const AdminPanel: FC = () => {
 	const [hidden, setHidden] = useState(true)
 	return (
 		<div className={styles.admin}>
+			<h1 data-testid={'admin-header'}>Админка</h1>
 			<div className={styles.admin__btn}>
 				<Button onClick={() => dispatch(clearItems())}>
 					Очистить localStorage

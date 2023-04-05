@@ -17,7 +17,11 @@ const HeaderDown: FC = memo(() => {
 		<div className={`${styles.header__down} content`}>
 			<div className={styles.burger}>
 				<img src={burger} alt='' />
-				<Link style={{ color: '#ffc85e' }} to={'admin'}>
+				<Link
+					data-testid={'admin-link'}
+					style={{ color: '#ffc85e' }}
+					to={'admin'}
+				>
 					Админка
 				</Link>
 			</div>
@@ -25,7 +29,7 @@ const HeaderDown: FC = memo(() => {
 				<img src={logo} alt='' />
 			</div>
 			<div className={`${styles.item} `}>
-				<Link to={'/'}>
+				<Link to={'/'} data-testid={'catalog-link'}>
 					<Button>
 						<p>Каталог</p>
 						<img src={catalog} alt='' />

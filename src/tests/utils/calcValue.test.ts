@@ -1,4 +1,4 @@
-import { calcValue } from '../utils/calcValue'
+import { calcValue } from '../../utils/calcValue'
 
 export {}
 const cart = [

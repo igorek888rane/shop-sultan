@@ -1,10 +1,10 @@
-import { FC } from "react";
-import AdminPanel from "../components/AdmiтPanel/AdminPanel";
+import { FC } from 'react'
+import AdminPanel from '../components/AdmiтPanel/AdminPanel'
 
 const AdminPage: FC = () => {
 	return (
-		<main>
-			<AdminPanel/>
+		<main data-testid='admin-page'>
+			<AdminPanel />
 		</main>
 	)
 }

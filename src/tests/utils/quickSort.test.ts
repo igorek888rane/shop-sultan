@@ -1,4 +1,4 @@
-import { quickSort } from '../utils/quickSort'
+import { quickSort } from '../../utils/quickSort'
 
 export {}
 const products = [

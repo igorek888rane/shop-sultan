@@ -4,7 +4,7 @@ import Cart from '../components/Cart/Cart'
 
 const CartPage: FC = () => {
 	return (
-		<main>
+		<main data-testid='cart-page'>
 			<div className={'content'}>
 				<div className={'path'}>
 					<p>Главная</p>

@@ -9,7 +9,11 @@ const CartIcon = () => {
 	const { cart } = useAppSelector(state => state.cart)
 
 	return (
-		<Link to={'cart'} className={`${styles.item} ${styles.cart__item}`}>
+		<Link
+			to={'cart'}
+			data-testid={'cart-link'}
+			className={`${styles.item} ${styles.cart__item}`}
+		>
 			<div className={styles.item__img}>
 				{cart.length > 0 && (
 					<div className={styles.cart_count}>{calcValue(cart).totalCount}</div>
