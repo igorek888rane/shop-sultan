@@ -18,16 +18,18 @@ const ProductCard: FC<ProductProps> = ({ product, adminPanel }) => {
 	const dispatch = useAppDispatch()
 	return (
 		<div className={styles.product}>
-			<Link to={`/${product.barcode}`} className={styles.product__img}>
+			<div className={styles.product__img}>
 				<img src={product.imageUrl.small} alt='' />
-			</Link>
+			</div>
 			<div className={styles.product__size}>
 				<img src={product.typeSize === 'volume' ? volume : weight} alt='' />
 				<p>
 					{product.size} {product.typeSize === 'volume' ? 'мл' : 'г'}{' '}
 				</p>
 			</div>
-			<div className={styles.product__name}>{product.name}</div>
+			<Link to={`/${product.barcode}`} className={styles.product__name}>
+				{product.name}
+			</Link>
 			<div className={styles.product__info}>
 				<p>
 					Штрихкод: <span>{product.barcode}</span>
