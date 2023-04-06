@@ -17,7 +17,9 @@ const Product: FC = () => {
 			</div>
 			<div className={styles.product__info}>
 				<p className={styles.product__available}>В наличии</p>
-				<p className={styles.product__name}>{product?.name}</p>
+				<p className={styles.product__name} data-testid='product-name'>
+					{product?.name}
+				</p>
 				<ProductSize />
 				<ProductPrice />
 				<ProductItems />

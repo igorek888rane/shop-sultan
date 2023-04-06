@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import cart from './slice/cartSlice'
 import products from './slice/productsSlice'
 import filter from './slice/filterSlice'
@@ -7,17 +7,23 @@ import modal from './slice/modalSlice'
 import pagination from './slice/paginationSlice'
 import admin from './slice/adminSlice'
 
-export const store = configureStore({
-	reducer: {
-		cart,
-		products,
-		filter,
-		sort,
-		modal,
-		pagination,
-		admin
-	},
+const rootReducer = combineReducers({
+	cart,
+	products,
+	filter,
+	sort,
+	modal,
+	pagination,
+	admin,
 })
 
-export type AppDispatch = typeof store.dispatch
-export type RootState = ReturnType<typeof store.getState>
+export const createReduxStore = (initialState = {}) => {
+	return configureStore({
+		reducer: rootReducer,
+		preloadedState: initialState,
+	})
+}
+
+export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof createReduxStore>
+export type AppDispatch = AppStore['dispatch']

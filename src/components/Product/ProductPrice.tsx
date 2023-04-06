@@ -14,7 +14,7 @@ const ProductPrice: FC = () => {
 	const dispatch = useAppDispatch()
 	return (
 		<div className={styles.product__price}>
-			<p className={styles.product__name}>
+			<p className={styles.product__name} data-testid='price'>
 				{cartProduct
 					? (cartProduct.amount * cartProduct.price).toFixed(1)
 					: product?.price}

@@ -17,14 +17,18 @@ const ChangeCartItem: FC<PropsWithChildren<ChangeCartItemProps>> = ({
 	return (
 		<div className={styles.change__cart}>
 			<button
+				data-testid='minus'
 				disabled={!cartProduct}
 				onClick={() => product && dispatch(changeCart({ product, amount: -1 }))}
 				className={styles.change__btn}
 			>
 				-
 			</button>
-			<div className={styles.count}>{cartProduct ? cartProduct.amount : 0}</div>
+			<div className={styles.count} data-testid='count'>
+				{cartProduct ? cartProduct.amount : 0}
+			</div>
 			<button
+				data-testid='plus'
 				onClick={() => product && dispatch(changeCart({ product, amount: 1 }))}
 				className={styles.change__btn}
 			>

@@ -3,7 +3,7 @@ import { act, render, screen } from '@testing-library/react'
 import AdminPage from '../../pages/AdminPage'
 import { RenderWithRouter } from '../helpers/RenderWithRouter'
 import { Provider } from 'react-redux'
-import { store } from '../../store/store'
+import { createReduxStore } from '../../store/store'
 import userEvent from '@testing-library/user-event'
 import CartPage from '../../pages/CartPage'
 import CatalogPage from '../../pages/CatalogPage'
@@ -15,7 +15,7 @@ describe('Router', () => {
 	})
 	test('Admin ', async () => {
 		render(
-			<Provider store={store}>
+			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
 					<AdminPage />
 				</RenderWithRouter>
@@ -30,7 +30,7 @@ describe('Router', () => {
 	})
 	test('Cart ', async () => {
 		render(
-			<Provider store={store}>
+			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
 					<CartPage />
 				</RenderWithRouter>
@@ -44,7 +44,7 @@ describe('Router', () => {
 	})
 	test('Catalog ', async () => {
 		render(
-			<Provider store={store}>
+			<Provider store={createReduxStore()}>
 				<RenderWithRouter initialRoute={'/cart'}>
 					<CatalogPage />
 				</RenderWithRouter>
@@ -58,7 +58,7 @@ describe('Router', () => {
 	})
 	test('Product ', async () => {
 		render(
-			<Provider store={store}>
+			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
 					<ProductPage />
 				</RenderWithRouter>
