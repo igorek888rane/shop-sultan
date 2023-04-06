@@ -58,21 +58,6 @@ body {
 		max-width: 1366px;
 		padding: 0 7px;
 
-		.path {
-			display: flex;
-			grid-gap: 20px;
-			a {
-				text-decoration: none;
-				color: $colorEl;
-			}
-			p {
-				font-weight: 300;
-			}
-
-			.path__here {
-				opacity: 0.5;
-			}
-		}
 		.back {
 			display: none;
 			grid-gap: 5px;
@@ -111,9 +96,6 @@ h2 {
 @media (max-width: 788px) {
 	.App {
 		.content {
-			.path {
-				display: none;
-			}
 			.back {
 				display: flex;
 				.arrow {

@@ -1,16 +1,12 @@
 import { FC } from 'react'
-import { Link } from 'react-router-dom'
 import Cart from '../components/Cart/Cart'
+import Path from '../components/Path/Path'
 
 const CartPage: FC = () => {
 	return (
 		<main data-testid='cart-page'>
 			<div className={'content'}>
-				<div className={'path'}>
-					<p>Главная</p>
-					<Link to={'/'}>Каталог</Link>
-					<p className={'path__here'}>Корзина</p>
-				</div>
+				<Path to={'/'} nameLink={'Каталог'} name={'Корзина'} />
 				<Cart />
 			</div>
 		</main>

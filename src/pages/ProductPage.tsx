@@ -1,8 +1,9 @@
 import { FC, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { setProduct } from '../store/slice/productsSlice'
 import { useAppDispatch, useAppSelector } from '../hooks/useApp'
 import Product from '../components/Product/Product'
+import Path from '../components/Path/Path'
 
 const ProductPage: FC = () => {
 	const { id } = useParams()
@@ -17,11 +18,7 @@ const ProductPage: FC = () => {
 	return (
 		<main data-testid='product-page'>
 			<div className={'content'}>
-				<div className={'path'}>
-					<p>Главная</p>
-					<Link to={'/'}>Каталог</Link>
-					<p className={'path__here'}>{product?.name}</p>
-				</div>
+				<Path name={product?.name} to={'/'} nameLink={'Каталог'} />
 				<Product />
 			</div>
 		</main>

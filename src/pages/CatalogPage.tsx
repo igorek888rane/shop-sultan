@@ -1,15 +1,13 @@
 import { FC } from 'react'
 import Catalog from '../components/Catalog/Catalog'
 import arrow from '../img/catalog/arrow.png'
+import Path from '../components/Path/Path'
 
 const CatalogPage: FC = () => {
 	return (
 		<main data-testid='catalog-page'>
 			<div className={'content'}>
-				<div className={'path'}>
-					<p>Главная</p>
-					<p className={'path__here'}>Каталог</p>
-				</div>
+				<Path name={'Каталог'} />
 				<div className={'back'}>
 					<div className={'arrow'}>
 						<img src={arrow} alt='' />
