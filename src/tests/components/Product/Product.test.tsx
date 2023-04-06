@@ -32,7 +32,7 @@ describe('Product', () => {
 		const productName = getByTestId('product-name')
 		expect(productName).toBeInTheDocument()
 	})
-	test('test count', async () => {
+	test('test count', () => {
 		const { getByTestId } = render(
 			<Provider store={createReduxStore({ products: { product } })}>
 				<Product />
@@ -41,11 +41,11 @@ describe('Product', () => {
 		const count = getByTestId('count')
 		expect(count).toHaveTextContent('0')
 		expect(getByTestId('price')).toHaveTextContent('450')
-		await act(() => {
+		act(() => {
 			userEvent.click(getByTestId('plus'))
 		})
 		expect(count).toHaveTextContent('1')
-		await act(() => {
+		act(() => {
 			userEvent.click(getByTestId('minus'))
 		})
 		expect(count).toHaveTextContent('0')

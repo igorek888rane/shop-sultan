@@ -30,6 +30,7 @@ const CheckBox: FC<InputProps> = ({ filter, head, products }) => {
 	return (
 		<div className={styles.checkbox__block}>
 			<input
+				id='checkbox'
 				className={styles.input}
 				type={'checkbox'}
 				checked={checkBox}

@@ -72,7 +72,9 @@ const CatalogFilters: FC<CatalogFiltersProps> = ({
 			/>
 			<FilterItem head={{ id: 'brand', name: 'Бренд' }} items={brand} />
 			<div className={styles.filter__btn}>
-				<Button onClick={showFilterProducts}>Показать</Button>
+				<Button id={'show'} onClick={showFilterProducts}>
+					Показать
+				</Button>
 				<Button onClick={clearFilter} style={{ padding: '20px' }}>
 					<img src={clear} alt='' />
 				</Button>

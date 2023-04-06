@@ -13,7 +13,7 @@ describe('Router', () => {
 	beforeAll(() => {
 		Element.prototype.scrollIntoView = jest.fn()
 	})
-	test('Admin ', async () => {
+	test('Admin ', () => {
 		render(
 			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
@@ -22,13 +22,13 @@ describe('Router', () => {
 			</Provider>
 		)
 
-		await act(() => {
+		act(() => {
 			const adminLink = screen.getByTestId('admin-link')
 			userEvent.click(adminLink)
 			expect(screen.getByTestId('admin-page')).toBeInTheDocument()
 		})
 	})
-	test('Cart ', async () => {
+	test('Cart ', () => {
 		render(
 			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
@@ -36,13 +36,13 @@ describe('Router', () => {
 				</RenderWithRouter>
 			</Provider>
 		)
-		await act(() => {
+		act(() => {
 			const cartLink = screen.getByTestId('cart-link')
 			userEvent.click(cartLink)
 			expect(screen.getByTestId('cart-page')).toBeInTheDocument()
 		})
 	})
-	test('Catalog ', async () => {
+	test('Catalog ', () => {
 		render(
 			<Provider store={createReduxStore()}>
 				<RenderWithRouter initialRoute={'/cart'}>
@@ -56,7 +56,7 @@ describe('Router', () => {
 			expect(screen.getByTestId('catalog-page')).toBeInTheDocument()
 		})
 	})
-	test('Product ', async () => {
+	test('Product ', () => {
 		render(
 			<Provider store={createReduxStore()}>
 				<RenderWithRouter>
@@ -64,7 +64,7 @@ describe('Router', () => {
 				</RenderWithRouter>
 			</Provider>
 		)
-		await act(() => {
+		act(() => {
 			const productLink = screen.getAllByTestId('product-link')
 			userEvent.click(productLink[0])
 			expect(screen.getByTestId('product-page')).toBeInTheDocument()

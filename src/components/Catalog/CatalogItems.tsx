@@ -22,7 +22,6 @@ const CatalogHead: FC<CatalogHeaderProps> = ({ showFilter, setShowFilter }) => {
 	const { typesCare, manufacturer, brand, to, from } = useAppSelector(
 		state => state.filter
 	)
-
 	const dispatch = useAppDispatch()
 	const isResize = useResize()
 	const startIndex = (page - 1) * 10
@@ -63,7 +62,7 @@ const CatalogHead: FC<CatalogHeaderProps> = ({ showFilter, setShowFilter }) => {
 				className={styles.catalog__products}
 				style={isResize ? { display: !showFilter ? 'flex' : 'none' } : {}}
 			>
-				<div className={styles.catalog__products_cards}>
+				<div className={styles.catalog__products_cards} id={'productsCards'}>
 					{productsFilter.slice(startIndex, endIndex).map(product => (
 						<ProductCard key={product?.barcode} product={product as IProduct} />
 					))}

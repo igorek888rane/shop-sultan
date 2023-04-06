@@ -4,6 +4,7 @@ import styles from './Button.module.scss'
 interface ButtonProps {
 	type?: 'submit'
 	style?: object
+	id?: string
 	disabled?: boolean
 	onClick?: () => void
 }
@@ -11,12 +12,14 @@ interface ButtonProps {
 const Button: FC<PropsWithChildren<ButtonProps>> = ({
 	type,
 	style,
+	id,
 	disabled,
 	onClick,
 	children,
 }) => {
 	return (
 		<button
+			id={id}
 			type={type ? type : 'button'}
 			style={style}
 			disabled={disabled}

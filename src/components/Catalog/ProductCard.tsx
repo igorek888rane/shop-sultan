@@ -17,7 +17,7 @@ interface ProductProps {
 const ProductCard: FC<ProductProps> = ({ product, adminPanel }) => {
 	const dispatch = useAppDispatch()
 	return (
-		<div className={styles.product}>
+		<div className={styles.product} id='productCard'>
 			<div className={styles.product__img}>
 				<img src={product.imageUrl.small} alt='' />
 			</div>
