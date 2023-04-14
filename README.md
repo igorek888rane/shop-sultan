@@ -38,9 +38,9 @@
 
 В корневой папке проекта лежит Dockerfile с инструкциями по созданию образа .
 Команды :
-1. docker build -t your name  .  - для создания образа 
-2. docker run --name your name -d -p 3000:3000 shop-sultan:latest - для запуска контайнера 
-3. docker stop NAME - для остановки контейнера 
+1. docker build -t NAME_IMAGES .  - для создания образа 
+2. docker run --name NAME_CONTAINER -d -p 3000:3000 shop-sultan:latest - для запуска контайнера 
+3. docker stop NAME_CONTAINER - для остановки контейнера 
 
 
 ## Тесты 
